@@ -11,6 +11,7 @@ common patterns, and workflows involved in developing it.
   - [gettext workflow](#gettext-workflow)
     - [Creating a .pot (Portable Object Template) file from a project](#creating-a-pot-portable-object-template-file-from-a-project)
     - [Creating a .po (Portable Object) localization](#creating-a-po-portable-object-localization)
+    - [Organizing .po files for gettext](#organizing-po-files-for-gettext)
     - [Creating a .mo (Machine Object) compiled localization](#creating-a-mo-machine-object-compiled-localization)
     - [Updating .po/.pot files after generation](#updating-popot-files-after-generation)
 
@@ -94,6 +95,10 @@ Additional references:
 - [PO Editors](https://www.gnu.org/software/trans-coord/manual/web-trans/html_node/PO-Editors.html)
 
 - [ ] Explain what a .po does
+
+### Organizing .po files for gettext
+
+- [ ] Explain how to organize .po files
 
 ### Creating a .mo (Machine Object) compiled localization
 
