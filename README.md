@@ -1,4 +1,4 @@
-# discord.py-gettext-demo
+# discord.py-i18n-demo
 
 This project is a demonstration of how to set up gettext localization
 (at a beginner level) and integrate it into discord.py v2.0!
@@ -9,7 +9,7 @@ write a [config.toml] in your current working directory, start the bot,
 then use the "@mention sync" command.
 
 ```sh
-python -m pip install git+https://github.com/thegamecracks/discord.py-gettext-demo
+python -m pip install git+https://github.com/thegamecracks/discord.py-i18n-demo
 python -m dpygt
 ```
 
