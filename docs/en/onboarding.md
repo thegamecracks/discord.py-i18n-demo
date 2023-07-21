@@ -76,6 +76,24 @@ to enable them.
 
 ### Creating a .pot (Portable Object Template) file from a project
 
+A POT file contains all the strings in the source code that have been marked
+as translatable, along with some common metadata like the project version
+and copyright. It by itself does not handle translation, but it can be
+used to create PO files which contain translations for a single locale.
+
+The `xgettext` utility is used to scan your source code files to extract
+strings. This is done by looking for keywords, typically a function name
+like `gettext`, followed by a set of parentheses with arguments, one or
+more of which contain strings.
+A default set of keywords are defined for several programming languages, listed
+[in the manual](https://www.gnu.org/software/gettext/manual/gettext.html#index-_002dk_002c-xgettext-option).
+In the case of Python, those are the `*gettext()` functions and the additional
+`_()` shorthand, which is typically defined as an alias to `gettext()` but can
+really be set to anything. For example with discord.py, `discord.app_commands.locale_str`
+marks strings that can be localized when synchronizing application commands with
+Discord, so this is an appropriate type to alias to `_`. You can also define
+your own keywords if necessary.
+
 To create the .pot, start by `cd`ing into `src/dpygt/` and then running
 `xgettext **/*.py`. xgettext will scan the given Python files and generate
 a resulting `messages.po` file. You can then rename this with the .pot file
@@ -89,8 +107,6 @@ will later rely on it to determine the translation file's encoding.
 Additional resources:
 - [`*` glob syntax](https://en.wikipedia.org/wiki/Glob_(programming))
 - [GNU xgettext manual](https://www.gnu.org/software/gettext/manual/gettext.html#Making-the-PO-Template-File)
-
-- [ ] Explain how source code translatable text is identified
 
 ### Creating a .po (Portable Object) localization
 
