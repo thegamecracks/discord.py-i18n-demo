@@ -13,5 +13,11 @@ python -m pip install git+https://github.com/thegamecracks/discord.py-gettext-de
 python -m dpygt
 ```
 
+## Requirements
+
+- Python 3.11+
+- `gettext` and its associated utilities, particularly `msgfmt`
+  - Not sure how to get this? See the [tutorial]
+
 [tutorial]: /docs/TUTORIAL.md
 [config.toml]: /config_default.toml
