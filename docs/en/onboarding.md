@@ -14,6 +14,7 @@ common patterns, and workflows involved in developing it.
     - [Organizing PO files for gettext](#organizing-po-files-for-gettext)
     - [Creating a .mo (Machine Object) compiled localization](#creating-a-mo-machine-object-compiled-localization)
     - [Updating .po/.pot files after generation](#updating-popot-files-after-generation)
+  - [Glossary](#glossary)
 
 ## Program Description
 
