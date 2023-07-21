@@ -108,7 +108,14 @@ Additional references:
 
 ### Organizing .po files for gettext
 
-- [ ] Explain how to organize .po files
+The [Python gettext module](https://docs.python.org/3/library/gettext.html#gettext.bindtextdomain)
+generally requires an explicit path to the directory containing the localizations.
+For this project, that has been set to [src/dpygt/locales/](/src/dpygt/locales/).
+Within this directory, localizations are further categorized into
+`<language>/<category>/<domain>.po`, where `<language>` is the locale code,
+`<category>` is the locale category (always LC_MESSAGES for gettext),
+and `<domain>` is the domain name. For example, a .po file for a Japanese
+localization of this project should be defined as `locales/ja/LC_MESSAGES/dpygt.po`.
 
 ### Creating a .mo (Machine Object) compiled localization
 
