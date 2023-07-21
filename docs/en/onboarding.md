@@ -53,8 +53,21 @@ You can learn more about Python in their [official documentation](https://docs.p
 This project uses Python [3.11](https://docs.python.org/3/whatsnew/3.11.html)
 which was released on October 2022 and is being maintained until October 2027.
 
-- [ ] Summarize Python packages
-- [ ] Explain how to set up a virtual environment
+Since there are dependencies and MO file compilations involved, this project
+is set up as a package to make these steps automatic with one install command.
+Python packages
+(or more specifically [distribution packages](https://packaging.python.org/en/latest/glossary/#term-Distribution-Package))
+are there to help share code across users while automating any necessary setup,
+such as compiling C extensions and installing other package dependencies.
+
+When you install packages with Python, they go to a common location known
+as your `site-packages`. Python will look through this directory to find
+your packages so you can [import]() them from anywhere in your scripts.
+Ideally however, you should create a virtual environment for every project
+so your packages are isolated to that project, preventing dependencies
+from conflicting with each other and having an overall mess in your global
+`site-packages`.
+You can learn more about this in [one of the PyPA guides](https://packaging.python.org/en/latest/tutorials/installing-packages/).
 
 ### discord.py
 
