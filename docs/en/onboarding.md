@@ -21,8 +21,8 @@ common patterns, and workflows involved in developing it.
 This project is written as a Python package, intended to be installed
 into a Python environment before execution. It uses the built-in
 [Python gettext module](https://docs.python.org/3/library/gettext.html)
-to perform translations, and [discord.py](https://discordpy.readthedocs.io/)
-to log into Discord with a bot account.
+to perform translations, and [discord.py](#discordpy)
+to login and register application commands on Discord.
 
 ### gettext
 
