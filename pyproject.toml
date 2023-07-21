@@ -3,8 +3,8 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "dpygt"
-description = "A discord.py bot using gettext"
+name = "discord.py-i18n-demo"
+description = "A demonstration of handling internationalization with discord.py."
 requires-python = ">=3.11"
 authors = [{ name = "thegamecracks" }]
 readme = "README.md"
