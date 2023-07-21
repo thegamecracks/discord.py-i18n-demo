@@ -1,6 +1,6 @@
 """Re-invokes xgettext on source packages and merges them into .po/.pot files."""
 import subprocess
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 for package_path in Path("src").iterdir():
     if not package_path.is_dir():
@@ -22,7 +22,17 @@ for package_path in Path("src").iterdir():
         continue
 
     merging_po = package_path / "messages.po.merging"
-    subprocess.check_call(["xgettext", "-o", merging_po, *source_files])
+    subprocess.check_call(
+        [
+            "xgettext",
+            "-o",
+            # Normalize generated source file references in POSIX style
+            PurePosixPath(merging_po).relative_to(package_path),
+            *(PurePosixPath(p).relative_to(package_path) for p in source_files),
+        ],
+        # Skip src/package/ in source file references
+        cwd=package_path,
+    )
 
     # Hide CHARSET warning by defaulting to utf-8
     content_type_temp = rb'"Content-Type: text/plain; charset=CHARSET\n"'
