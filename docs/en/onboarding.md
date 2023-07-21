@@ -58,11 +58,19 @@ which was released on October 2022 and is being maintained until October 2027.
 
 ### discord.py
 
+discord.py is a Python library that wraps the Discord API and Gateway,
+allowing succinct programs that can interact with the Discord social platform.
 discord.py's [official documentation](https://discordpy.readthedocs.io/)
 and [GitHub repository](https://github.com/Rapptz/discord.py)
 are the most up-to-date places to learn how the library works.
 
-- [ ] Summarize discord.py
+To run this project, you must have a bot account created, joined on a server,
+and the bot token added to a [config.toml](/src/dpygt/config_default.toml)
+file in your current directory.
+See step 1 in the
+[official Getting Started guide](https://discord.com/developers/docs/getting-started#step-1-creating-an-app)
+to complete this. No privileged gateway intents are required, but you are free
+to enable them.
 
 ## gettext workflow
 
