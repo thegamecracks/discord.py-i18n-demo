@@ -79,7 +79,7 @@ to enable them.
 To create the .pot, start by `cd`ing into `src/dpygt/` and then running
 `xgettext **/*.py`. xgettext will scan the given Python files and generate
 a resulting `messages.po` file. You can then rename this with the .pot file
-extension and "dpygt" domain (resulting in `dpygt.pot`), then edit the comment
+extension and "dpygt" [domain] (resulting in `dpygt.pot`), then edit the comment
 header.
 
 Make sure you also change the `Content-Type` charset to `utf-8` since the
@@ -131,7 +131,7 @@ For this project, that has been set to [src/dpygt/locales/](/src/dpygt/locales/)
 Within this directory, localizations are further categorized into
 `<language>/<category>/<domain>.po`, where `<language>` is the locale code,
 `<category>` is the locale category (always LC_MESSAGES for gettext),
-and `<domain>` is the domain name. For example, a PO file for a Japanese
+and `<domain>` is the [domain] name. For example, a PO file for a Japanese
 localization of this project should be defined as `locales/ja/LC_MESSAGES/dpygt.po`.
 
 ### Creating a .mo (Machine Object) compiled localization
@@ -169,9 +169,11 @@ with their respective PO files.
 
 ## Glossary
 
-1. Domain
+1. <span id="domain">Domain</span>
 
    In gettext, a domain uniquely identifies a set of translations for a program.
    MO files should be named with their domain as it is required for
    [locating](https://www.gnu.org/software/gettext/manual/gettext.html#Locating-Message-Catalog-Files)
    those files in their locale category (`<localedir>/<locale>/<category>/<domain>.mo`).
+
+[domain]: #domain
