@@ -26,6 +26,12 @@ to log into Discord with a bot account.
 
 ### gettext
 
+gettext refers to a set of utilities written as part of the GNU Project
+designed to help programs support internationalization (abbreviated as i18n,
+meaning a program can adapt to different locales without an architectural re-design)
+and localization (abbreviated as L18n and refers to the process of adding
+translations for one or more locales).
+
 On Windows, gettext utilites can be provided by the [Git for Windows](https://git-scm.com/download/)
 distribution, either by:
 
