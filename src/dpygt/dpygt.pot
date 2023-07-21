@@ -2,7 +2,6 @@
 # Copyright (C) 2023 thegamecracks
 # This file is distributed under the same license as the dpygt package.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.1.0\n"
