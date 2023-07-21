@@ -8,7 +8,7 @@ from discord.ext import commands
 from ..bot import DPyGT
 
 
-class Dice(commands.Cog):
+class Random(commands.Cog):
     def __init__(self, bot: DPyGT):
         self.bot = bot
 
@@ -41,4 +41,4 @@ class Dice(commands.Cog):
 
 
 async def setup(bot: DPyGT):
-    await bot.add_cog(Dice(bot))
+    await bot.add_cog(Random(bot))

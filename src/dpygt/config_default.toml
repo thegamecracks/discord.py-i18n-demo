@@ -3,8 +3,8 @@
 [bot]
 token = ""
 extensions = [
-    ".cogs.dice",
     ".cogs.owner",
+    ".cogs.random",
 ]
 
 [bot.intents]
