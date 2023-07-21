@@ -2,7 +2,9 @@
 
 [bot]
 token = ""
-extensions = []
+extensions = [
+    ".cogs.owner",
+]
 
 [bot.intents]
 # https://discordpy.readthedocs.io/en/stable/api.html#intents
