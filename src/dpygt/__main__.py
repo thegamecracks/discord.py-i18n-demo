@@ -37,4 +37,8 @@ if config.bot.token == "":
     )
 
 bot = DPyGT(config)
-bot.run(config.bot.token, root_logger=True)
+bot.run(
+    config.bot.token,
+    log_level=root_level,
+    root_logger=True,
+)
