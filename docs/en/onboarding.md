@@ -4,7 +4,7 @@ Wondering how this project works? This document explains the technologies,
 common patterns, and workflows involved in developing it.
 
 - [Onboarding](#onboarding)
-  - [Program Description](#program-description)
+  - [Project Summary](#project-summary)
     - [gettext](#gettext)
     - [Python](#python)
     - [discord.py](#discordpy)
@@ -16,7 +16,7 @@ common patterns, and workflows involved in developing it.
     - [Updating .po/.pot files after generation](#updating-popot-files-after-generation)
   - [Glossary](#glossary)
 
-## Program Description
+## Project Summary
 
 This project is written as a Python package, intended to be installed
 into a Python environment before execution. It uses the built-in
