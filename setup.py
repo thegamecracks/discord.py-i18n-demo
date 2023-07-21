@@ -19,6 +19,8 @@ class build_mo(Command, SubCommand):
 
     build_lib = "build/lib"
 
+    _source_root = Path("src")
+
     # SubCommand protocol
 
     def initialize_options(self) -> None:
@@ -48,9 +50,19 @@ class build_mo(Command, SubCommand):
                 RuntimeWarning,
             )
 
-        for path in self._find_po_files():
-            output = str(self._get_output_path(path.with_suffix(".mo")))
-            subprocess.run(["msgfmt", "-o", output, str(path)])
+        for source_po in self._find_po_files():
+            output_po = self._get_output_path(source_po)
+            output_mo = output_po.with_suffix(".mo")
+
+            if not self.editable_mode:
+                # Parent directory required for msgfmt to work correctly
+                output_mo.parent.mkdir(parents=True, exist_ok=True)
+
+            subprocess.check_call(["msgfmt", "-o", output_mo, output_po])
+
+            if not self.editable_mode:
+                # Space savings
+                output_po.unlink()
 
     def get_source_files(self) -> list[str]:
         """
@@ -86,25 +98,29 @@ class build_mo(Command, SubCommand):
         Destination files should be strings in the form of
         ``"{build_lib}/destination/file/path"``.
         """
-        return {
-            str(self._get_output_path(path)): str(path)
-            for path in self._find_po_files()
-        }
+        mapping: dict[str, str] = {}
+        for source_po in self._find_po_files():
+            output_po = self._get_output_path(source_po)
+            output_mo = output_po.with_suffix(".mo")
+            mapping[str(output_mo)] = str(source_po)
+        return mapping
 
     # Utility methods
 
     def _find_po_files(self) -> Iterator[Path]:
-        for package_path in Path("src").iterdir():
+        """Yields all PO files in the project source directory."""
+        for package_path in self._source_root.iterdir():
             if not package_path.is_dir():
                 continue
 
             for po_path in package_path.rglob("*.po"):
                 yield po_path
 
-    def _get_output_path(self, path_str: Path | str) -> Path:
+    def _get_output_path(self, path: Path) -> Path:
         if self.editable_mode:
-            return Path(path_str)
-        return Path(self.build_lib) / path_str
+            return path
+        path = path.relative_to(self._source_root)
+        return Path(self.build_lib) / path
 
     # Subcommand registration
 
