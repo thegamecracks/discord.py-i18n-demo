@@ -62,7 +62,8 @@ such as compiling C extensions and installing other package dependencies.
 
 When you install packages with Python, they go to a common location known
 as your `site-packages`. Python will look through this directory to find
-your packages so you can [import]() them from anywhere in your scripts.
+your packages so you can [import](https://docs.python.org/3/tutorial/modules.html)
+them from anywhere in your scripts.
 Ideally however, you should create a virtual environment for every project
 so your packages are isolated to that project, preventing dependencies
 from conflicting with each other and having an overall mess in your global
