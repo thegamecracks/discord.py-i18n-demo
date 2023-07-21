@@ -66,8 +66,34 @@ Additional resources:
 
 ### Creating a .po (Portable Object) localization
 
+Assuming you are still in the `src/dpygt/` directory from the previous section,
+you can run `msginit -i dpygt.pot -l <locale>` to generate a new .po file,
+where `<locale>` defines the language code and an optional country code in
+the form LL_CC, for example `en_US`.
+
+> Note
+>
+> For this project we are limited to the locales supported by Discord,
+> which can be found [in their documentation](https://discord.com/developers/docs/reference#locales).
+
+Afterwards a `<locale>.po` file will be generated in your current directory.
+You should open that file and adjust any metadata as necessary (such as `Last-Translator`)
+before you start writing translations for messages.
+
+The PO format is explained in the [GNU manual](https://www.gnu.org/software/gettext/manual/gettext.html#The-Format-of-PO-Files).
+However, there are also graphical interfaces for editing PO files like
+[Lokalize](https://userbase.kde.org/Lokalize),
+[Poedit](https://poedit.net/),
+and [Virtaal](https://virtaal.translatehouse.org/)
+which help with maintaining consistent/correct syntax of the file format.
+
+Additional references:
+- [-l/--locale option format](https://www.gnu.org/software/gettext/manual/gettext.html#index-_002dl_002c-msginit-option)
+- [ISO 639-1 language codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
+- [ISO 3166-1 alpha-2 country codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+- [PO Editors](https://www.gnu.org/software/trans-coord/manual/web-trans/html_node/PO-Editors.html)
+
 - [ ] Explain what a .po does
-- [ ] Explain how to create a .po
 
 ### Creating a .mo (Machine Object) compiled localization
 
