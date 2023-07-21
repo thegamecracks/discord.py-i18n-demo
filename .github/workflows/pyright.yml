@@ -19,5 +19,7 @@ jobs:
         cache-dependency-path: 'pyproject.toml'
     - name: Install pyright
       run: pip install pyright
+    - name: Install dpygt
+      run: pip install .
     - name: Run pyright
       run: pyright
