@@ -122,20 +122,18 @@ Additional resources:
 
 ### Creating a .po (Portable Object) localization
 
-To begin writing translations for a particular locale, you should start off
-with essentially a copy of the POT file.
-Run `msginit -i src/dpygt/dpygt.pot -l <locale>` to generate a new PO file,
-where `<locale>` defines the language code and an optional country code in
-the form LL_CC, for example `en_US`.
+To begin writing translations for a particular locale, you should run
+`msginit -i src/dpygt/dpygt.pot -l <locale>` to generate a new PO file
+from the template named `<locale>.po`.
+`<locale>` should define the language code + optional country code
+in the form LL_CC, for example `en_US`.
+Adjust the PO file's metadata like `Last-Translator` as necessary before you
+start writing translations for messages.
 
 > <u><b>Note</b></u>
 >
 > For this project we are limited to the
 > [locales supported by Discord](https://discord.com/developers/docs/reference#locales).
-
-Afterwards a `<locale>.po` file will be generated in your current directory.
-You should open that file and adjust any metadata as necessary (such as `Last-Translator`)
-before you start writing translations for messages.
 
 The PO format is explained in the [GNU manual](https://www.gnu.org/software/gettext/manual/gettext.html#The-Format-of-PO-Files).
 However, there are also graphical interfaces for editing PO files like
