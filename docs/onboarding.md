@@ -21,6 +21,16 @@ common patterns, and workflows involved in developing it.
 
 ### gettext
 
+On Windows, gettext utilites can be provided by the [Git for Windows](https://git-scm.com/download/)
+distribution, either by:
+
+1. using the gettext utilities within Git Bash, or;
+2. enabling the "Use Git and optional Unix tools from the Command Prompt"
+   option during installation to have access to them in the regular Windows
+   terminals.
+
+On Linux, gettext is usually available through your package manager.
+
 You can read more about gettext on the [GNU website](https://www.gnu.org/software/gettext/).
 
 - [ ] Summarize gettext
