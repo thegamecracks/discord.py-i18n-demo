@@ -17,7 +17,7 @@ log = logging.getLogger(__name__)
 class DPyGT(commands.Bot):
     def __init__(self, config: DPyGTSettings):
         super().__init__(
-            command_prefix=(),
+            command_prefix=commands.when_mentioned,
             intents=config.bot.intents.create_intents(),
             strip_after_prefix=True,
         )
