@@ -19,5 +19,5 @@ python -m dpygt
 - `gettext` and its associated utilities, particularly `msgfmt`
   - Not sure how to get this? See the [tutorial]
 
-[tutorial]: /docs/TUTORIAL.md
+[tutorial]: /docs/tutorial.md
 [config.toml]: /src/dpygt/config_default.toml
