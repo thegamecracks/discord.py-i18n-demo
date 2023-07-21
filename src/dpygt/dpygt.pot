@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-21 16:54-0400\n"
+"POT-Creation-Date: 2023-07-21 17:07-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,31 +15,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: cogs/random.py:16
+#: cogs/random.py:17
 msgid "roll"
 msgstr ""
 
-#: cogs/random.py:17
+#: cogs/random.py:18
 msgid "Roll one or more dice."
 msgstr ""
 
-#: cogs/random.py:20
+#: cogs/random.py:21
 msgid "The number of dice to roll."
 msgstr ""
 
-#: cogs/random.py:21
+#: cogs/random.py:22
 msgid "The number of sides with each dice."
 msgstr ""
 
-#: cogs/random.py:24
+#: cogs/random.py:25
 msgid "n-dice"
 msgstr ""
 
-#: cogs/random.py:25
+#: cogs/random.py:26
 msgid "n-sides"
 msgstr ""
 
-#: cogs/random.py:36
+#: cogs/random.py:37
 #, python-brace-format
 msgid ""
 "Rolls: [{0}]\n"

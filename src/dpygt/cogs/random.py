@@ -6,6 +6,7 @@ from discord.app_commands import locale_str as _
 from discord.ext import commands
 
 from ..bot import DPyGT
+from ..translator import translate
 
 
 class Random(commands.Cog):
@@ -33,8 +34,7 @@ class Random(commands.Cog):
         rolls = [random.randint(1, n_sides) for _ in range(n_dice)]
         rolls_str = ", ".join(map(str, rolls))
 
-        message = _("Rolls: [{0}]\nTotal: {1}")
-        message = await interaction.translate(message) or str(message)
+        message = await translate(_("Rolls: [{0}]\nTotal: {1}"), interaction)
         message = message.format(rolls_str, sum(rolls))
 
         await interaction.response.send_message(message)
