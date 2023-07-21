@@ -110,6 +110,8 @@ Additional resources:
 
 ### Creating a .po (Portable Object) localization
 
+To begin writing translations for a particular locale, you should start off
+with essentially a copy of the POT file.
 Assuming you are still in the `src/dpygt/` directory from the previous section,
 you can run `msginit -i dpygt.pot -l <locale>` to generate a new PO file,
 where `<locale>` defines the language code and an optional country code in
@@ -136,8 +138,6 @@ Additional references:
 - [ISO 639-1 language codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 - [ISO 3166-1 alpha-2 country codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 - [PO Editors](https://www.gnu.org/software/trans-coord/manual/web-trans/html_node/PO-Editors.html)
-
-- [ ] Explain what a .po does
 
 ### Organizing PO files for gettext
 
