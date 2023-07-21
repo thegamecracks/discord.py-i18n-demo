@@ -119,9 +119,32 @@ localization of this project should be defined as `locales/ja/LC_MESSAGES/dpygt.
 
 ### Creating a .mo (Machine Object) compiled localization
 
-- [ ] Explain how .mo files are used
-- [ ] Explain how to create a .mo
-- [ ] Explain the project's own utilities for .mo generation
+Before translations in PO files can be used, they must be compiled into MO files,
+which are portable (as in cross-platform) binary formats designed for optimized
+lookups of translations.
+
+To create a MO file from a PO file, you can use `msgfmt -o <domain>.mo <domain>.po`.
+Some GUI editors may do this for you, but otherwise it has to be done for each PO file
+which can get tedious. As such, this project provides two utilites for this:
+
+- [utils/build_mo.py](/utils/build_mo.py):
+  This is a very simple Python script that invokes msgfmt on all PO files
+  found within the src/ directory. It is intended to be run with the project
+  root being the current working directory.
+
+- [setup.py](/setup.py):
+  This is used by the setuptools build system and implements a subcommand
+  which replaces all PO files with MO equivalents when building the package
+  (editable installs excepted).
+  In other words, the [sdist] will only contain PO files, and the [wheel]
+  will only contain the MO files.
+
+[sdist]: https://packaging.python.org/en/latest/flow/#build-artifacts
+[wheel]: https://packaging.python.org/en/latest/flow/#build-artifacts
+
+This project prefers that MO files are not included in version control because
+they increase the repository size and can lead to inconsistent translations
+with their respective PO files.
 
 ### Updating .po/.pot files after generation
 
