@@ -13,6 +13,7 @@ parser.add_argument(
     "-v",
     "--verbose",
     action="count",
+    default=0,
     help="Increase logging verbosity",
 )
 
