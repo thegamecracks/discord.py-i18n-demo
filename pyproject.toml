@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dpygt"
+description = "A discord.py bot using gettext"
+requires-python = ">=3.11"
+authors = [{ name = "thegamecracks" }]
+readme = "README.md"
+dynamic = ["version"]
+dependencies = [
+    "discord.py~=2.3",
+    "pydantic~=2.0",
+]
+
+[project.optional-dependencies]
+dev = ["black>=23.7.0"]
+
+[tool.setuptools.dynamic]
+version = { attr = "dpygt.__version__" }

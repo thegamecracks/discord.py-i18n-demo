@@ -1,0 +1,10 @@
+# Full schema defined in /src/dpygt/config.py
+
+[bot]
+token = ""
+extensions = []
+
+[bot.intents]
+# https://discordpy.readthedocs.io/en/stable/api.html#intents
+# All default intents are enabled but can be modified here
+# message_content = true
