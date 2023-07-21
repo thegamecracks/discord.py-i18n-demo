@@ -48,7 +48,21 @@ are the most up-to-date places to learn how the library works.
 
 ### Creating a .pot (Portable Object Template) file from a project
 
-- [ ] Explain how to create a .pot
+To create the .pot, start by `cd`ing into `src/dpygt/` and then running
+`xgettext **/*.py`. xgettext will scan the given Python files and generate
+a resulting `messages.po` file. You can then rename this with the .pot file
+extension and "dpygt" domain (resulting in `dpygt.pot`), then edit the comment
+header.
+
+Make sure you also change the `Content-Type` charset to `utf-8` since the
+[Python gettext](https://docs.python.org/3/library/gettext.html) module
+will later rely on it to determine the translation file's encoding.
+
+Additional resources:
+- [`*` glob syntax](https://en.wikipedia.org/wiki/Glob_(programming))
+- [GNU xgettext manual](https://www.gnu.org/software/gettext/manual/gettext.html#Making-the-PO-Template-File)
+
+- [ ] Explain how source code translatable text is identified
 
 ### Creating a .po (Portable Object) localization
 
