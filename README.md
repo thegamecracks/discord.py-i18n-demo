@@ -17,7 +17,7 @@ python -m dpygt
 
 - Python 3.11+
 - `gettext` and its associated utilities, particularly `msgfmt`
-  - Not sure how to get this? See the [onboarding](/docs/onboarding.md#gettext)
+  - Not sure how to get this? See the [onboarding](/docs/en/onboarding.md#gettext)
 
-[onboarding]: /docs/onboarding.md
+[onboarding]: /docs/en/onboarding.md
 [config.toml]: /src/dpygt/config_default.toml
