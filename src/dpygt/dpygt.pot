@@ -1,45 +1,45 @@
 # dpygt
 # Copyright (C) 2023 thegamecracks
 # This file is distributed under the same license as the dpygt package.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-21 00:08-0400\n"
+"POT-Creation-Date: 2023-07-21 12:52-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: cogs/dice.py:16
+#: cogs/random.py:16
 msgid "roll"
 msgstr ""
 
-#: cogs/dice.py:17
+#: cogs/random.py:17
 msgid "Roll one or more dice."
 msgstr ""
 
-#: cogs/dice.py:20
+#: cogs/random.py:20
 msgid "The number of dice to roll."
 msgstr ""
 
-#: cogs/dice.py:21
+#: cogs/random.py:21
 msgid "The number of sides with each dice."
 msgstr ""
 
-#: cogs/dice.py:24
+#: cogs/random.py:24
 msgid "n-dice"
 msgstr ""
 
-#: cogs/dice.py:25
+#: cogs/random.py:25
 msgid "n-sides"
 msgstr ""
 
-#: cogs/dice.py:36
+#: cogs/random.py:36
 #, python-brace-format
 msgid ""
 "Rolls: [{0}]\n"
