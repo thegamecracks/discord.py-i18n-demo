@@ -1,6 +1,7 @@
 import argparse
 import importlib.metadata
 import logging
+import sys
 
 from .bot import DPyGT
 from .config import load_config
@@ -27,5 +28,13 @@ if args.verbose > 1:
     root_level = logging.DEBUG
 
 config = load_config()
+
+if config.bot.token == "":
+    sys.exit(
+        "No bot token has been supplied by a config.toml file.\n"
+        "Please get a Bot Token from https://discord.com/developers/applications "
+        "and add it to your configuration."
+    )
+
 bot = DPyGT(config)
 bot.run(config.bot.token, root_logger=True)
