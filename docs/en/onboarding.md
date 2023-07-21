@@ -195,7 +195,20 @@ with their respective PO files.
 
 ### Updating .po/.pot files after generation
 
-- [ ] Explain how to merge .po/.pot changes
+As the source code changes, strings may be added or removed, and source file
+references will become obsolete. To help maintain PO/POT files, the `msgmerge`
+utility can be used to merge an existing PO file with a freshly generated PO
+file from `xgettext`. For strings that have slightly changed, it attempts
+to fuzzy match them to their previous revisions by default. Strings that
+appear to no longer exist are considered obsolete and commented out.
+
+Similar to `msgfmt`, GUI editors may provide a utility command for merging
+PO files, but otherwise `msgmerge` has to be ran on each PO/POT file,
+making it tedious to use. Instead, the [utils/merge_po.py] script can be used
+to generate a PO file from source and merge them to all existing PO/POT files.
+
+Additional references:
+- [GNU manual](https://www.gnu.org/software/gettext/manual/gettext.html#msgmerge-Invocation)
 
 ## Glossary
 
