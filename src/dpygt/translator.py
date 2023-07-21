@@ -1,8 +1,15 @@
+from __future__ import annotations
+
 import gettext
 import importlib.resources
+from typing import TYPE_CHECKING, Any
 
 import discord
 from discord import app_commands
+from discord.ext import commands
+
+if TYPE_CHECKING:
+    from .bot import DPyGT
 
 
 _locales_path = str(importlib.resources.files(__package__).joinpath("locales"))
@@ -36,5 +43,43 @@ class GettextTranslator(app_commands.Translator):
             except OSError:
                 return
 
-        s = t.gettext(str(string))
-        return s or None
+        plural: app_commands.locale_str | None = string.extras.get("plural")
+        if plural is not None:
+            assert isinstance(context.data, int)
+            translated = t.ngettext(string.message, plural.message, context.data)
+        else:
+            translated = t.gettext(string.message)
+
+        return translated or None
+
+
+async def translate(
+    message: app_commands.locale_str,
+    obj: DPyGT | discord.Interaction,
+    locale: discord.Locale | None = None,
+    data: Any = None,
+) -> str:
+    """A shorthand for translating a message.
+
+    Unlike the methods built into discord.py, this will use the original message
+    if a translation could not be found.
+
+    """
+    if isinstance(obj, commands.Bot):
+        if locale is None:
+            return str(message)
+
+        assert obj.tree.translator is not None
+        context = app_commands.TranslationContext(
+            location=app_commands.TranslationContextLocation.other,
+            data=data,
+        )
+        translated = await obj.tree.translator.translate(
+            message,
+            locale=locale,
+            context=context,
+        )
+    else:
+        translated = await obj.translate(message, data=data)
+
+    return translated or str(message)

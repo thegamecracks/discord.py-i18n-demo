@@ -5,6 +5,7 @@ token = ""
 extensions = [
     ".cogs.owner",
     ".cogs.random",
+    ".cogs.rps",
 ]
 
 [bot.intents]
