@@ -29,23 +29,21 @@ to log into Discord with a bot account.
 gettext refers to a set of utilities written as part of the GNU Project
 designed to help programs support internationalization (abbreviated as i18n,
 meaning a program can adapt to different locales without an architectural re-design)
-and localization (abbreviated as L18n and refers to the process of adding
+and localization (abbreviated as L18n, referring to the process of adding
 translations for one or more locales).
+
+On Linux, gettext is usually available through your package manager.
 
 On Windows, gettext utilites can be provided by the [Git for Windows](https://git-scm.com/download/)
 distribution, either by:
 
-1. using the gettext utilities within Git Bash, or;
+1. using the gettext utilities within [Git Bash](https://www.atlassian.com/git/tutorials/git-bash),
+   or;
 2. enabling the "Use Git and optional Unix tools from the Command Prompt"
    option during installation to have access to them in the regular Windows
    terminals.
 
-On Linux, gettext is usually available through your package manager.
-
 You can read more about gettext on the [GNU website](https://www.gnu.org/software/gettext/).
-
-- [ ] Summarize gettext
-- [ ] Explain how to install gettext
 
 ### Python
 
