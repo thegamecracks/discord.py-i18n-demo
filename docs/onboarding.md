@@ -11,7 +11,7 @@ common patterns, and workflows involved in developing it.
   - [gettext workflow](#gettext-workflow)
     - [Creating a .pot (Portable Object Template) file from a project](#creating-a-pot-portable-object-template-file-from-a-project)
     - [Creating a .po (Portable Object) localization](#creating-a-po-portable-object-localization)
-    - [Organizing .po files for gettext](#organizing-po-files-for-gettext)
+    - [Organizing PO files for gettext](#organizing-po-files-for-gettext)
     - [Creating a .mo (Machine Object) compiled localization](#creating-a-mo-machine-object-compiled-localization)
     - [Updating .po/.pot files after generation](#updating-popot-files-after-generation)
 
@@ -78,7 +78,7 @@ Additional resources:
 ### Creating a .po (Portable Object) localization
 
 Assuming you are still in the `src/dpygt/` directory from the previous section,
-you can run `msginit -i dpygt.pot -l <locale>` to generate a new .po file,
+you can run `msginit -i dpygt.pot -l <locale>` to generate a new PO file,
 where `<locale>` defines the language code and an optional country code in
 the form LL_CC, for example `en_US`.
 
@@ -106,7 +106,7 @@ Additional references:
 
 - [ ] Explain what a .po does
 
-### Organizing .po files for gettext
+### Organizing PO files for gettext
 
 The [Python gettext module](https://docs.python.org/3/library/gettext.html#gettext.bindtextdomain)
 generally requires an explicit path to the directory containing the localizations.
@@ -114,7 +114,7 @@ For this project, that has been set to [src/dpygt/locales/](/src/dpygt/locales/)
 Within this directory, localizations are further categorized into
 `<language>/<category>/<domain>.po`, where `<language>` is the locale code,
 `<category>` is the locale category (always LC_MESSAGES for gettext),
-and `<domain>` is the domain name. For example, a .po file for a Japanese
+and `<domain>` is the domain name. For example, a PO file for a Japanese
 localization of this project should be defined as `locales/ja/LC_MESSAGES/dpygt.po`.
 
 ### Creating a .mo (Machine Object) compiled localization
