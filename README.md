@@ -20,4 +20,4 @@ python -m dpygt
   - Not sure how to get this? See the [tutorial]
 
 [tutorial]: /docs/TUTORIAL.md
-[config.toml]: /config_default.toml
+[config.toml]: /src/dpygt/config_default.toml

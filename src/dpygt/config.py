@@ -1,15 +1,18 @@
 from __future__ import annotations
 
+import importlib.resources
+import io
 import tomllib
 from pathlib import Path
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, Literal, Protocol
 
 from pydantic import BaseModel
 
 if TYPE_CHECKING:
     import discord
 
-CONFIG_DEFAULT_PATH = Path("config_default.toml")
+_package_files = importlib.resources.files(__package__)
+CONFIG_DEFAULT_RESOURCE = _package_files.joinpath("config_default.toml")
 CONFIG_PATH = Path("config.toml")
 
 
@@ -53,6 +56,11 @@ DPyGTSettings.model_rebuild()
 DPyGTSettingsBot.model_rebuild()
 
 
+class OpenableBinary(Protocol):
+    def open(self, __mode: Literal["rb"], /) -> io.BufferedIOBase:
+        ...
+
+
 def _recursive_update(dest: dict, src: dict) -> None:
     for k, vsrc in src.items():
         vdest = dest.get(k)
@@ -62,7 +70,7 @@ def _recursive_update(dest: dict, src: dict) -> None:
             dest[k] = vsrc
 
 
-def _load_raw_config(path: Path) -> dict[str, Any]:
+def _load_raw_config(path: OpenableBinary) -> dict[str, Any]:
     with path.open("rb") as f:
         return tomllib.load(f)
 
@@ -75,7 +83,7 @@ def load_default_config() -> DPyGTSettings:
         The default configuration file could not be found.
 
     """
-    data = _load_raw_config(CONFIG_DEFAULT_PATH)
+    data = _load_raw_config(CONFIG_DEFAULT_RESOURCE)
     return DPyGTSettings.model_validate(data)
 
 
@@ -96,10 +104,10 @@ def load_config(*, merge_default: bool = True) -> DPyGTSettings:
     if not merge_default:
         data = _load_raw_config(CONFIG_PATH)
     elif CONFIG_PATH.exists():
-        data = _load_raw_config(CONFIG_DEFAULT_PATH)
+        data = _load_raw_config(CONFIG_DEFAULT_RESOURCE)
         overwrites = _load_raw_config(CONFIG_PATH)
         _recursive_update(data, overwrites)
     else:
-        data = _load_raw_config(CONFIG_DEFAULT_PATH)
+        data = _load_raw_config(CONFIG_DEFAULT_RESOURCE)
 
     return DPyGTSettings.model_validate(data)
