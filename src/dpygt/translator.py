@@ -6,6 +6,7 @@ from discord import app_commands
 
 
 _locales_path = str(importlib.resources.files(__package__).joinpath("locales"))
+DOMAIN = "dpygt"
 
 
 def locale_to_gnu(locale: discord.Locale) -> str:
@@ -21,12 +22,19 @@ class GettextTranslator(app_commands.Translator):
     ) -> str | None:
         try:
             t = gettext.translation(
-                domain="dpygt",
+                domain=DOMAIN,
                 localedir=_locales_path,
                 languages=(locale_to_gnu(locale),),
             )
         except OSError:
-            return
+            try:
+                t = gettext.translation(
+                    domain=DOMAIN,
+                    localedir=_locales_path,
+                    languages=("en_US",),
+                )
+            except OSError:
+                return
 
         s = t.gettext(str(string))
         return s or None
