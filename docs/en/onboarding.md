@@ -26,7 +26,7 @@ to log into Discord with a bot account.
 
 ### gettext
 
-gettext refers to a set of utilities written as part of the GNU Project
+gettext refers to a set of utilities written as part of the GNU Project,
 designed to help programs support internationalization (abbreviated as i18n,
 meaning a program can adapt to different locales without an architectural re-design)
 and localization (abbreviated as L18n, referring to the process of adding
@@ -76,15 +76,14 @@ discord.py is a Python library that wraps the Discord API and Gateway,
 allowing succinct programs that can interact with the Discord social platform.
 discord.py's [official documentation](https://discordpy.readthedocs.io/)
 and [GitHub repository](https://github.com/Rapptz/discord.py)
-are the most up-to-date places to learn how the library works.
+are the most up-to-date resources to learn how the library works.
 
 To run this project, you must have a bot account created, joined on a server,
 and the bot token added to a [config.toml](/src/dpygt/config_default.toml)
 file in your current directory.
-See step 1 in the
-[official Getting Started guide](https://discord.com/developers/docs/getting-started#step-1-creating-an-app)
-to complete this. No privileged gateway intents are required, but you are free
-to enable them.
+See step 1 in the [official Getting Started guide](https://discord.com/developers/docs/getting-started#step-1-creating-an-app)
+to complete this.
+No privileged gateway intents are required, but you are free to enable them.
 
 ## gettext workflow
 
@@ -99,13 +98,13 @@ The `xgettext` utility is used to scan your source code files to extract
 strings. This is done by looking for keywords, typically a function name
 like `gettext`, followed by a set of parentheses with arguments, one or
 more of which contain strings.
-A default set of keywords are defined for several programming languages, listed
-[in the manual](https://www.gnu.org/software/gettext/manual/gettext.html#index-_002dk_002c-xgettext-option).
+A default set of keywords, as listed [in the manual](https://www.gnu.org/software/gettext/manual/gettext.html#index-_002dk_002c-xgettext-option),
+are defined for several programming languages.
 In the case of Python, those are the `*gettext()` functions and the additional
 `_()` shorthand, which is typically defined as an alias to `gettext()` but can
 really be set to anything. For example with discord.py, `discord.app_commands.locale_str`
 marks strings that can be localized when synchronizing application commands with
-Discord, so this is an appropriate type to alias to `_`. You can also define
+Discord, so this is an appropriate type to be aliased as `_`. You can also define
 your own keywords if necessary.
 
 To create the .pot, start by `cd`ing into `src/dpygt/` and then running
@@ -114,13 +113,13 @@ a resulting `messages.po` file. You can then rename this with the .pot file
 extension and "dpygt" [domain] (resulting in `dpygt.pot`), then edit the comment
 header.
 
-Make sure you also change the `Content-Type` charset to `utf-8` since the
-[Python gettext](https://docs.python.org/3/library/gettext.html) module
+Make sure you also change the `Content-Type` charset to `UTF-8` since the
+[Python gettext module](https://docs.python.org/3/library/gettext.html)
 will later rely on it to determine the translation file's encoding.
 
 Additional resources:
 - [`*` glob syntax](https://en.wikipedia.org/wiki/Glob_(programming))
-- [GNU xgettext manual](https://www.gnu.org/software/gettext/manual/gettext.html#Making-the-PO-Template-File)
+- [GNU xgettext](https://www.gnu.org/software/gettext/manual/gettext.html#Making-the-PO-Template-File)
 
 ### Creating a .po (Portable Object) localization
 
@@ -131,10 +130,10 @@ you can run `msginit -i dpygt.pot -l <locale>` to generate a new PO file,
 where `<locale>` defines the language code and an optional country code in
 the form LL_CC, for example `en_US`.
 
-> Note
+> <u><b>Note</b></u>
 >
-> For this project we are limited to the locales supported by Discord,
-> which can be found [in their documentation](https://discord.com/developers/docs/reference#locales).
+> For this project we are limited to the
+> [locales supported by Discord](https://discord.com/developers/docs/reference#locales).
 
 Afterwards a `<locale>.po` file will be generated in your current directory.
 You should open that file and adjust any metadata as necessary (such as `Last-Translator`)
@@ -145,9 +144,9 @@ However, there are also graphical interfaces for editing PO files like
 [Lokalize](https://userbase.kde.org/Lokalize),
 [Poedit](https://poedit.net/),
 and [Virtaal](https://virtaal.translatehouse.org/)
-which help with maintaining consistent/correct syntax of the file format.
+which help with maintaining consistent and correct syntax of the file format.
 
-Additional references:
+Additional resources:
 - [-l/--locale option format](https://www.gnu.org/software/gettext/manual/gettext.html#index-_002dl_002c-msginit-option)
 - [ISO 639-1 language codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 - [ISO 3166-1 alpha-2 country codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
@@ -161,14 +160,13 @@ For this project, that has been set to [src/dpygt/locales/](/src/dpygt/locales/)
 Within this directory, localizations are further categorized into
 `<language>/<category>/<domain>.po`, where `<language>` is the locale code,
 `<category>` is the locale category (always LC_MESSAGES for gettext),
-and `<domain>` is the [domain] name. For example, a PO file for a Japanese
-localization of this project should be defined as `locales/ja/LC_MESSAGES/dpygt.po`.
+and `<domain>` is the [domain] name. For example, a Japanese localization
+of this project should be defined as `locales/ja/LC_MESSAGES/dpygt.po`.
 
 ### Creating a .mo (Machine Object) compiled localization
 
 Before translations in PO files can be used, they must be compiled into MO files,
-which are portable (as in cross-platform) binary formats designed for optimized
-lookups of translations.
+which are cross-platform binary formats designed for optimized lookups of translations.
 
 To create a MO file from a PO file, you can use `msgfmt -o <domain>.mo <domain>.po`.
 Some GUI editors may do this for you, but otherwise it has to be done for each PO file
@@ -176,8 +174,8 @@ which can get tedious. As such, this project provides two utilites for this:
 
 - [utils/build_mo.py](/utils/build_mo.py):
   This is a very simple Python script that invokes msgfmt on all PO files
-  found within the src/ directory. It is intended to be run with the project
-  root being the current working directory.
+  found within the src/ directory.
+  It is intended to be executed from the project root.
 
 - [setup.py](/setup.py):
   This is used by the setuptools build system and implements a subcommand
@@ -197,24 +195,25 @@ with their respective PO files.
 
 As the source code changes, strings may be added or removed, and source file
 references will become obsolete. To help maintain PO/POT files, the `msgmerge`
-utility can be used to merge an existing PO file with a freshly generated PO
-file from `xgettext`. For strings that have slightly changed, it attempts
-to fuzzy match them to their previous revisions by default. Strings that
-appear to no longer exist are considered obsolete and commented out.
+utility can be used to merge two PO files, such as one freshly generated from
+`xgettext`. For strings that have slightly changed, it attempts to fuzzy match
+them to their previous revisions by default. Strings that appear to no longer
+exist are considered obsolete and commented out.
 
 Similar to `msgfmt`, GUI editors may provide a utility command for merging
-PO files, but otherwise `msgmerge` has to be ran on each PO/POT file,
-making it tedious to use. Instead, the [utils/merge_po.py] script can be used
-to generate a PO file from source and merge them to all existing PO/POT files.
+PO files, but otherwise `msgmerge` has to be ran on each PO/POT file, making
+it tedious to use. Instead, the [utils/merge_po.py](/utils/merge_po.py) script
+can be used to generate a PO file from source and merge them to all existing
+PO/POT files.
 
-Additional references:
-- [GNU manual](https://www.gnu.org/software/gettext/manual/gettext.html#msgmerge-Invocation)
+Additional resources:
+- [GNU msgmerge](https://www.gnu.org/software/gettext/manual/gettext.html#msgmerge-Invocation)
 
 ## Glossary
 
 1. <span id="domain">Domain</span>
 
-   In gettext, a domain uniquely identifies a set of translations for a program.
+   In gettext, a domain uniquely identifies a set of localizations for a program.
    MO files should be named with their domain as it is required for
    [locating](https://www.gnu.org/software/gettext/manual/gettext.html#Locating-Message-Catalog-Files)
    those files in their locale category (`<localedir>/<locale>/<category>/<domain>.mo`).
