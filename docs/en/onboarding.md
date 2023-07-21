@@ -107,11 +107,10 @@ marks strings that can be localized when synchronizing application commands with
 Discord, so this is an appropriate type to be aliased as `_`. You can also define
 your own keywords if necessary.
 
-To create the .pot, start by `cd`ing into `src/dpygt/` and then running
-`xgettext **/*.py`. xgettext will scan the given Python files and generate
-a resulting `messages.po` file. You can then rename this with the .pot file
-extension and "dpygt" [domain] (resulting in `dpygt.pot`), then edit the comment
-header.
+To create the .pot, start by running `xgettext src/dpygt/**/*.py`. xgettext
+will scan the given Python files and generate a resulting `messages.po` file.
+You can then rename it to the `dpygt` [domain] + `.pot` extension,
+edit the title/copyright header, and place it at `src/dpygt/dpygt.pot`.
 
 Make sure you also change the `Content-Type` charset to `UTF-8` since the
 [Python gettext module](https://docs.python.org/3/library/gettext.html)
@@ -125,8 +124,7 @@ Additional resources:
 
 To begin writing translations for a particular locale, you should start off
 with essentially a copy of the POT file.
-Assuming you are still in the `src/dpygt/` directory from the previous section,
-you can run `msginit -i dpygt.pot -l <locale>` to generate a new PO file,
+Run `msginit -i src/dpygt/dpygt.pot -l <locale>` to generate a new PO file,
 where `<locale>` defines the language code and an optional country code in
 the form LL_CC, for example `en_US`.
 

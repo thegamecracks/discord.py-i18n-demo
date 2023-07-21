@@ -27,11 +27,9 @@ for package_path in Path("src").iterdir():
             "xgettext",
             "-o",
             # Normalize generated source file references in POSIX style
-            PurePosixPath(merging_po).relative_to(package_path),
-            *(PurePosixPath(p).relative_to(package_path) for p in source_files),
+            PurePosixPath(merging_po),
+            *(PurePosixPath(p) for p in source_files),
         ],
-        # Skip src/package/ in source file references
-        cwd=package_path,
     )
 
     # Hide CHARSET warning by defaulting to utf-8
