@@ -149,3 +149,12 @@ with their respective PO files.
 ### Updating .po/.pot files after generation
 
 - [ ] Explain how to merge .po/.pot changes
+
+## Glossary
+
+1. Domain
+
+   In gettext, a domain uniquely identifies a set of translations for a program.
+   MO files should be named with their domain as it is required for
+   [locating](https://www.gnu.org/software/gettext/manual/gettext.html#Locating-Message-Catalog-Files)
+   those files in their locale category (`<localedir>/<locale>/<category>/<domain>.mo`).
