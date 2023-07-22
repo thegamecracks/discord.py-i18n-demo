@@ -18,6 +18,7 @@ class build_mo(Command, SubCommand):
     """Builds machine object translation files."""
 
     build_lib = "build/lib"
+    editable_mode = False  # shouldn't be necessary but pyright wants this
 
     _source_root = Path("src")
 
