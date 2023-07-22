@@ -4,6 +4,9 @@ on:
   push:
     paths:
       - 'src/**.py'
+  pull_request:
+    paths:
+      - '**.py'
 
 jobs:
   lint:
