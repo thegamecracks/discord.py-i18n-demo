@@ -116,7 +116,7 @@ msgstr "Le gagnant est ..."
 #. Command name
 #: src/dpygt/cogs/rps.py:281
 msgid "rock-paper-scissors"
-msgstr "Pierre-Papier-Ciseau"
+msgstr "pierre-papier-ciseau"
 
 #. Command description ("rock-paper-scissors")
 #: src/dpygt/cogs/rps.py:283
