@@ -64,6 +64,20 @@ class GettextTranslator(app_commands.Translator):
         return translated or None
 
 
+def plural_locale_str(
+    singular: str,
+    plural: str,
+    **kwargs,
+) -> app_commands.locale_str:
+    """A shorthand for defining a string with singular and plural variants.
+
+    This should be aliased to ngettext, ungettext, or dngettext
+    so the `xgettext` program can recognize the function.
+
+    """
+    return app_commands.locale_str(singular, plural=plural, **kwargs)
+
+
 async def translate(
     message: app_commands.locale_str,
     obj: DPyGT | discord.Interaction,

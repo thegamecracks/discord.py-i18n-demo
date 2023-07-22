@@ -11,7 +11,7 @@ from discord.app_commands import locale_str as _
 from discord.ext import commands
 
 from ..bot import DPyGT
-from ..translator import translate
+from ..translator import plural_locale_str as ngettext, translate
 
 UM = discord.User | discord.Member
 
@@ -223,12 +223,8 @@ class RPSDuelView(BaseRPSView):
         n = self.n_waiting
         if len(self.moves) < 2 and n:
             content = await translate(
-                _(
-                    # Message shown when a player (singular) needs to join the current game
-                    "Waiting for {0} player...",
-                    # Message shown when more players (plural) need to join the current game
-                    plural=_("Waiting for {0} players..."),
-                ),
+                # Message shown when a player needs to join the current game
+                ngettext("Waiting for {0} player...", "Waiting for {0} players..."),
                 self.interaction,
                 data=n,
             )

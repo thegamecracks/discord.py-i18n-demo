@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-22 01:18-0400\n"
+"POT-Creation-Date: 2023-07-22 14:03-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,39 +93,35 @@ msgstr ""
 msgid "It's a tie!"
 msgstr ""
 
-#. Message shown when more players (plural) need to join the current game
-#: src/dpygt/cogs/rps.py:230
-#, python-brace-format
-msgid "Waiting for {0} players..."
-msgstr ""
-
-#. Message shown when a player (singular) needs to join the current game
-#: src/dpygt/cogs/rps.py:228
+#. Message shown when a player needs to join the current game
+#: src/dpygt/cogs/rps.py:227
 #, python-brace-format
 msgid "Waiting for {0} player..."
-msgstr ""
+msgid_plural "Waiting for {0} players..."
+msgstr[0] ""
+msgstr[1] ""
 
 #. Message temporarily shown before the winner is revealed
-#: src/dpygt/cogs/rps.py:255
+#: src/dpygt/cogs/rps.py:251
 msgid "Revealing the winner..."
 msgstr ""
 
 #. Command name
-#: src/dpygt/cogs/rps.py:281
+#: src/dpygt/cogs/rps.py:277
 msgid "rock-paper-scissors"
 msgstr ""
 
 #. Command description ("rock-paper-scissors")
-#: src/dpygt/cogs/rps.py:283
+#: src/dpygt/cogs/rps.py:279
 msgid "Start a game of rock, paper, scissors."
 msgstr ""
 
 #. Command parameter description ("user")
-#: src/dpygt/cogs/rps.py:288
+#: src/dpygt/cogs/rps.py:284
 msgid "The user to play against. If not provided, anyone can play their move."
 msgstr ""
 
 #. Command parameter name (used by "rock-paper-scissors")
-#: src/dpygt/cogs/rps.py:293
+#: src/dpygt/cogs/rps.py:289
 msgid "user"
 msgstr ""
