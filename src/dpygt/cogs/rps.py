@@ -191,7 +191,7 @@ class RPSDuelView(BaseRPSView):
         return discord.Embed()
 
     def list_moves(self, *, reveal: bool) -> list[str]:
-        move_list = []
+        move_list: list[str] = []
         for player, button in self.moves.items():
             move = "⬛"
             if button is None:
@@ -202,7 +202,7 @@ class RPSDuelView(BaseRPSView):
         return move_list
 
     async def get_embed(self, winners: list[UM] | None) -> discord.Embed:
-        description = []
+        description: list[str] = []
 
         if winners:
             content = await translate(_("The winner is {0}!"), self.interaction)
