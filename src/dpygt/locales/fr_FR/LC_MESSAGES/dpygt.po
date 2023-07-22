@@ -56,7 +56,7 @@ msgstr "nombre-de-dés"
 #. Command parameter name (used by "roll")
 #: src/dpygt/cogs/random.py:32
 msgid "n-sides"
-msgstr "Nombre de faces :"
+msgstr "nombre-de-faces"
 
 #. Message sent after one or more dice have been rolled
 #. {0}: a comma-separated list of each die's values
