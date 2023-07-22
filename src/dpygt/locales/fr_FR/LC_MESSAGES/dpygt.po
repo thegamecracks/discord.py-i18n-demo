@@ -51,7 +51,7 @@ msgstr "Le nombre de faces pour chaque dé"
 #. Command parameter name (used by "roll")
 #: src/dpygt/cogs/random.py:30
 msgid "n-dice"
-msgstr "Nombre de dés :"
+msgstr "nombre-de-dés"
 
 #. Command parameter name (used by "roll")
 #: src/dpygt/cogs/random.py:32
