@@ -33,5 +33,13 @@ If you just want to test out the package, then:
 - `gettext` and its associated utilities, particularly `msgfmt`
   - Not sure how to get this? See the [onboarding](/docs/en/onboarding.md#gettext)
 
+## Contributing
+
+Want to add translations? [Fork this repository], create a new branch,
+commit your changes there, then make a pull request. You may want to
+read the [onboarding] to learn how localizations are done, or look at
+how [existing localizations](/src/dpygt/locales/) are written.
+
 [onboarding]: /docs/en/onboarding.md
 [config.toml]: /src/dpygt/config_default.toml
+[Fork this repository]: https://docs.github.com/en/get-started/quickstart/contributing-to-projects
