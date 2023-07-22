@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-22 14:03-0400\n"
+"POT-Creation-Date: 2023-07-22 15:06-0400\n"
 "PO-Revision-Date: 2023-07-22 01:17-0400\n"
 "Last-Translator: Bubobubobubobubo\n"
 "Language-Team: French\n"
@@ -110,22 +110,22 @@ msgid "Revealing the winner..."
 msgstr "Le gagnant est ..."
 
 #. Command name
-#: src/dpygt/cogs/rps.py:277
+#: src/dpygt/cogs/rps.py:278
 msgid "rock-paper-scissors"
 msgstr "pierre-papier-ciseau"
 
 #. Command description ("rock-paper-scissors")
-#: src/dpygt/cogs/rps.py:279
+#: src/dpygt/cogs/rps.py:280
 msgid "Start a game of rock, paper, scissors."
 msgstr "Démarrer un jeu de pierre, papier, ciseaux"
 
 #. Command parameter description ("user")
-#: src/dpygt/cogs/rps.py:284
+#: src/dpygt/cogs/rps.py:285
 msgid "The user to play against. If not provided, anyone can play their move."
 msgstr ""
 "Votre opposant. Si ce dernier n'est pas spécifié, tout le monde pourra jouer."
 
 #. Command parameter name (used by "rock-paper-scissors")
-#: src/dpygt/cogs/rps.py:289
+#: src/dpygt/cogs/rps.py:290
 msgid "user"
 msgstr "utilisateur"
