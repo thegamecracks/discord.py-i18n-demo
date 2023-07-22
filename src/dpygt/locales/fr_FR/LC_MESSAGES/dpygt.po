@@ -131,4 +131,4 @@ msgstr "Votre opposant. Si ce dernier n'est pas spécifié, tout le monde pourra
 #. Command parameter name (used by "rock-paper-scissors")
 #: src/dpygt/cogs/rps.py:293
 msgid "user"
-msgstr "Utilisateur"
+msgstr "utilisateur"
