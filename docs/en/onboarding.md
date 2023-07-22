@@ -28,7 +28,7 @@ to login and register application commands on Discord.
 
 gettext refers to a set of utilities written as part of the GNU Project,
 designed to help programs support internationalization (abbreviated as i18n,
-meaning a program can adapt to different locales without an architectural re-design)
+meaning a program can adapt to different [locales] without an architectural re-design)
 and localization (abbreviated as L18n, referring to the process of adding
 translations for one or more locales).
 
@@ -92,7 +92,7 @@ No privileged gateway intents are required, but you are free to enable them.
 A POT file contains all the strings in the source code that have been marked
 as translatable, along with some common metadata like the project version
 and copyright. It by itself does not handle translation, but it can be
-used to create PO files which contain translations for a single locale.
+used to create PO files which contain translations for a single [locale].
 
 The `xgettext` utility is used to scan your source code files to extract
 strings. This is done by looking for keywords, typically a function name
@@ -122,7 +122,7 @@ Additional resources:
 
 ### Creating a .po (Portable Object) localization
 
-To begin writing translations for a particular locale, you should run
+To begin writing translations for a particular [locale], you should run
 `msginit -i src/dpygt/dpygt.pot -l <locale>` to generate a new PO file
 from the template, resulting in `<locale>.po`.
 `<locale>` should define the language code + optional country code
@@ -155,7 +155,7 @@ The [Python gettext module](https://docs.python.org/3/library/gettext.html#gette
 requires us to define a directory containing the localizations.
 For this project, that has been set to [src/dpygt/locales/](/src/dpygt/locales/).
 Within this directory, localizations are further categorized into
-`<language>/<category>/<domain>.po`, where `<language>` is the locale code,
+`<language>/<category>/<domain>.po`, where `<language>` is the [locale] code,
 `<category>` is the locale category (always LC_MESSAGES for gettext),
 and `<domain>` is the [domain] name. For example, a Japanese localization
 of this project should be defined as `locales/ja/LC_MESSAGES/dpygt.po`.
@@ -221,6 +221,14 @@ Additional resources:
    In gettext, a domain uniquely identifies a set of localizations for a program.
    MO files should be named with their domain as it is required for
    [locating](https://www.gnu.org/software/gettext/manual/gettext.html#Locating-Message-Catalog-Files)
-   those files in their locale category (`<localedir>/<locale>/<category>/<domain>.mo`).
+   those files in their [locale] category (`<localedir>/<locale>/<category>/<domain>.mo`).
+
+2. <span id="locale">Locale</span>
+
+   As described by the [GNU manual](https://www.gnu.org/software/gettext/manual/gettext.html#I18n_002c-L10n_002c-and-Such),
+   a locale defines the "cultural habits" associated with a language and/or country.
+   Locales are used as identifiers for categorizing translations.
 
 [domain]: #domain
+[locale]: #locale
+[locales]: #locale
