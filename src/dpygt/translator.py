@@ -54,10 +54,10 @@ class GettextTranslator(app_commands.Translator):
 
         t.add_fallback(EmptyTranslations())
 
-        plural: app_commands.locale_str | None = string.extras.get("plural")
+        plural: str | None = string.extras.get("plural")
         if plural is not None:
             assert isinstance(context.data, int)
-            translated = t.ngettext(string.message, plural.message, context.data)
+            translated = t.ngettext(string.message, plural, context.data)
         else:
             translated = t.gettext(string.message)
 
