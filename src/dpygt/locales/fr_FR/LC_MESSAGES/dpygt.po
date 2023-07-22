@@ -31,7 +31,7 @@ msgstr ""
 #. Command name
 #: src/dpygt/cogs/random.py:18
 msgid "roll"
-msgstr "Lancer"
+msgstr "lancer"
 
 #. Command description ("roll")
 #: src/dpygt/cogs/random.py:20
