@@ -268,7 +268,7 @@ def _create_buttons(items: Iterable[tuple[int, dict[str, object]]]) -> tuple[RPS
 
 class RPS(commands.Cog):
     STANDARD = (
-        (2, {"emoji": "️🪨", "style": discord.ButtonStyle.primary}),
+        (2, {"emoji": "🪨", "style": discord.ButtonStyle.primary}),
         (1, {"emoji": "📰", "style": discord.ButtonStyle.primary}),
         (0, {"emoji": "✂️", "style": discord.ButtonStyle.primary}),
     )
