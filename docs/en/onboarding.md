@@ -201,7 +201,10 @@ if they are missing the `msgfmt` utility.
 As the source code changes, strings may be added or removed, and source file
 references will become obsolete. To help maintain PO/POT files, the `msgmerge`
 utility can be used to merge two PO files, such as one freshly generated from
-`xgettext`. For strings that have slightly changed, it attempts to fuzzy match
+`xgettext`. For example, to update `current.po` in-place with `new.pot` you
+can run `msgmerge -U current.po new.pot`.
+
+For strings that have slightly changed, it attempts to fuzzy match
 them to their previous revisions by default. Strings that appear to no longer
 exist are considered obsolete and commented out.
 

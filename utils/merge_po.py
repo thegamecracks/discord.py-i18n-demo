@@ -74,4 +74,4 @@ for package_path in Path("src").iterdir():
     with merging_po_cm as merging_po:
         for po_path in po_paths:
             print(po_path)
-            subprocess.check_call(["msgmerge", po_path, merging_po, "-o", po_path])
+            subprocess.check_call(["msgmerge", "--update", po_path, merging_po])
