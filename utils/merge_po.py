@@ -12,6 +12,9 @@ def temporary_po_from_source(package_path: Path) -> Generator[Path, None, None]:
     subprocess.check_call(
         [
             "xgettext",
+            # Extract comments from source
+            # https://www.gnu.org/software/gettext/manual/gettext.html#index-_002dc_002c-xgettext-option
+            "--add-comments",
             "-o",
             # Normalize generated source file references in POSIX style
             PurePosixPath(merging_po),

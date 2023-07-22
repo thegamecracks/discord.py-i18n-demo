@@ -14,15 +14,21 @@ class Random(commands.Cog):
         self.bot = bot
 
     @app_commands.command(
+        # Command name
         name=_("roll"),
+        # Command description ("roll")
         description=_("Roll one or more dice."),
     )
     @app_commands.describe(
+        # Command parameter description ("n-dice")
         n_dice=_("The number of dice to roll."),
+        # Command parameter description ("n-sides")
         n_sides=_("The number of sides with each dice."),
     )
     @app_commands.rename(
+        # Command parameter name (used by "roll")
         n_dice=_("n-dice"),
+        # Command parameter name (used by "roll")
         n_sides=_("n-sides"),
     )
     async def roll(
@@ -34,6 +40,9 @@ class Random(commands.Cog):
         rolls = [random.randint(1, n_sides) for _ in range(n_dice)]
         rolls_str = ", ".join(map(str, rolls))
 
+        # Message sent after one or more dice have been rolled
+        # {0}: a comma-separated list of each die's values
+        # {1}: the total value of rolled dice
         message = await translate(_("Rolls: [{0}]\nTotal: {1}"), interaction)
         message = message.format(rolls_str, sum(rolls))
 

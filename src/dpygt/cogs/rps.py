@@ -65,6 +65,8 @@ class BaseRPSView(discord.ui.View, ABC):
         for button in self.children:
             button.disabled = True
         timestamp = discord.utils.format_dt(datetime.datetime.now(), style="R")
+        # Message shown when the Rock Paper Scissors game times out
+        # {0}: the time when the game ended, e.g. 10 minutes ago (formatted by Discord)
         content = await translate(_("(ended {0} from inactivity)"), self.interaction)
         content = content.format(timestamp)
         await self.message.edit(content=content, view=self)
@@ -88,6 +90,8 @@ class BaseRPSView(discord.ui.View, ABC):
         content: str | None = None
         timestamp = self.timeout_timestamp
         if not finished and timestamp is not None:
+            # Message shown while the Rock Paper Scissors game is active
+            # {0}: the time that the game will end, e.g. in 10 minutes (formatted by Discord)
             content = await translate(_("(ends {0})"), interaction)
             content = content.format(timestamp)
 
@@ -205,10 +209,13 @@ class RPSDuelView(BaseRPSView):
         description: list[str] = []
 
         if winners:
+            # Message shown when someone wins in Rock Paper Scissors
+            # {0}: the user's mention, e.g. @thegamecracks
             content = await translate(_("The winner is {0}!"), self.interaction)
             content = content.format(winners[0].mention)
             description.append(content)
         elif winners is not None:
+            # Message shown when game ends due to a tie in Rock Paper Scissors
             description.append(await translate(_("It's a tie!"), self.interaction))
 
         description.extend(self.list_moves(reveal=winners is not None))
@@ -216,7 +223,12 @@ class RPSDuelView(BaseRPSView):
         n = self.n_waiting
         if len(self.moves) < 2 and n:
             content = await translate(
-                _("Waiting for {0} player...", plural=_("Waiting for {0} players...")),
+                _(
+                    # Message shown when a player (singular) needs to join the current game
+                    "Waiting for {0} player...",
+                    # Message shown when more players (plural) need to join the current game
+                    plural=_("Waiting for {0} players..."),
+                ),
                 self.interaction,
                 data=n,
             )
@@ -239,6 +251,7 @@ class RPSDuelView(BaseRPSView):
                 button.disabled = True
 
             pause_embed = self.get_base_embed()
+            # Message temporarily shown before the winner is revealed
             reveal_message = await translate(_("Revealing the winner..."), interaction)
             pause_embed.description = "\n".join(
                 [reveal_message] + self.list_moves(reveal=False)
@@ -264,15 +277,19 @@ class RPS(commands.Cog):
         self.bot = bot
 
     @app_commands.command(
+        # Command name
         name=_("rock-paper-scissors"),
+        # Command description ("rock-paper-scissors")
         description=_("Start a game of rock, paper, scissors."),
     )
     @app_commands.describe(
         user=_(
+            # Command parameter description ("user")
             "The user to play against. If not provided, anyone can play their move."
         ),
     )
     @app_commands.rename(
+        # Command parameter name (used by "rock-paper-scissors")
         user=_("user"),
     )
     async def rps(
