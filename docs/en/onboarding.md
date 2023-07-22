@@ -124,23 +124,24 @@ Additional resources:
 
 To begin writing translations for a particular locale, you should run
 `msginit -i src/dpygt/dpygt.pot -l <locale>` to generate a new PO file
-from the template named `<locale>.po`.
+from the template, resulting in `<locale>.po`.
 `<locale>` should define the language code + optional country code
 in the form LL_CC, for example `en_US`.
 Adjust the PO file's metadata like `Last-Translator` as necessary before you
 start writing translations for messages.
 
-> <u><b>Note</b></u>
+> **Note**
 >
 > For this project we are limited to the
 > [locales supported by Discord](https://discord.com/developers/docs/reference#locales).
 
-The PO format is explained in the [GNU manual](https://www.gnu.org/software/gettext/manual/gettext.html#The-Format-of-PO-Files).
+The PO format is explained in the [GNU manual](https://www.gnu.org/software/gettext/manual/gettext.html#The-Format-of-PO-Files)
+and it is important to understand when editing it by hand.
 However, there are also graphical interfaces for editing PO files like
 [Lokalize](https://userbase.kde.org/Lokalize),
 [Poedit](https://poedit.net/),
 and [Virtaal](https://virtaal.translatehouse.org/)
-which help with maintaining consistent and correct syntax of the file format.
+which help you ensure your changes use valid and conventional syntax.
 
 Additional resources:
 - [-l/--locale option format](https://www.gnu.org/software/gettext/manual/gettext.html#index-_002dl_002c-msginit-option)
@@ -151,13 +152,17 @@ Additional resources:
 ### Organizing PO files for gettext
 
 The [Python gettext module](https://docs.python.org/3/library/gettext.html#gettext.bindtextdomain)
-generally requires an explicit path to the directory containing the localizations.
+requires us to define a directory containing the localizations.
 For this project, that has been set to [src/dpygt/locales/](/src/dpygt/locales/).
 Within this directory, localizations are further categorized into
 `<language>/<category>/<domain>.po`, where `<language>` is the locale code,
 `<category>` is the locale category (always LC_MESSAGES for gettext),
 and `<domain>` is the [domain] name. For example, a Japanese localization
 of this project should be defined as `locales/ja/LC_MESSAGES/dpygt.po`.
+
+In reality, as explained in the next section, this file structure is intended
+for MO files, not PO files. However for convenience, this project expects all
+PO files to reside in the same directories as their MO file outputs.
 
 ### Creating a .mo (Machine Object) compiled localization
 
@@ -177,15 +182,19 @@ which can get tedious. As such, this project provides two utilites for this:
   This is used by the setuptools build system and implements a subcommand
   which replaces all PO files with MO equivalents when building the package
   (editable installs excepted).
-  In other words, the [sdist] will only contain PO files, and the [wheel]
-  will only contain the MO files.
+  In other words the [sdist] only includes the PO files, but once the [wheel]
+  is built from it, only MO files will be present.
 
 [sdist]: https://packaging.python.org/en/latest/flow/#build-artifacts
 [wheel]: https://packaging.python.org/en/latest/flow/#build-artifacts
 
+It is debatable whether MO files should be part of the repository
+or only exist as build artifacts.
 This project prefers that MO files are not included in version control because
 they increase the repository size and can lead to inconsistent translations
 with their respective PO files.
+This however means that users installing from source cannot compile PO files
+if they are missing the `msgfmt` utility.
 
 ### Updating .po/.pot files after generation
 
