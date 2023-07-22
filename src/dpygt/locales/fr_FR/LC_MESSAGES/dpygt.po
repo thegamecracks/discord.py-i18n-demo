@@ -94,7 +94,7 @@ msgstr "Le gagnant est {0}!"
 #. Message shown when game ends due to a tie in Rock Paper Scissors
 #: src/dpygt/cogs/rps.py:219
 msgid "It's a tie!"
-msgstr ""
+msgstr "Pas de vainqueur. Égalité !"
 
 #. Message shown when more players (plural) need to join the current game
 #: src/dpygt/cogs/rps.py:230
