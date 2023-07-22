@@ -31,17 +31,10 @@ class GettextTranslator(app_commands.Translator):
             t = gettext.translation(
                 domain=DOMAIN,
                 localedir=_locales_path,
-                languages=(locale_to_gnu(locale),),
+                languages=(locale_to_gnu(locale), "en_US"),
             )
         except OSError:
-            try:
-                t = gettext.translation(
-                    domain=DOMAIN,
-                    localedir=_locales_path,
-                    languages=("en_US",),
-                )
-            except OSError:
-                return
+            return
 
         plural: app_commands.locale_str | None = string.extras.get("plural")
         if plural is not None:
