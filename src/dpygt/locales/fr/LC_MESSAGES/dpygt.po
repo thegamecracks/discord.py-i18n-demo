@@ -102,7 +102,7 @@ msgstr "Pas de vainqueur. Égalité !"
 msgid "Waiting for {0} player..."
 msgid_plural "Waiting for {0} players..."
 msgstr[0] "En attente du joueur {0}..."
-msgstr[1] "En attentede {0} joueurs..."
+msgstr[1] "En attente de {0} joueurs..."
 
 #. Message temporarily shown before the winner is revealed
 #: src/dpygt/cogs/rps.py:251
