@@ -16,6 +16,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["black>=23.7.0"]
+jishaku = ["jishaku @ git+https://github.com/Gorialis/jishaku@4590932f56a0e5a33b15d1c536955d4898d6b04e"]
 
 [tool.setuptools.dynamic]
 version = { attr = "dpygt.__version__" }

@@ -27,6 +27,7 @@ class DPyGTSettings(_BaseModel):
 
 
 class DPyGTSettingsBot(_BaseModel):
+    allow_jishaku: bool
     extensions: list[str]
     intents: DPyGTSettingsBotIntents
     token: str
