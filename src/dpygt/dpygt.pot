@@ -32,27 +32,27 @@ msgstr ""
 msgid "roll"
 msgstr ""
 
-# Command description for "roll"
+# Command description ("roll")
 #: src/dpygt/cogs/random.py:18
 msgid "Roll one or more dice."
 msgstr ""
 
-# Command parameter description for "n-dice"
+# Command parameter description ("n-dice")
 #: src/dpygt/cogs/random.py:21
 msgid "The number of dice to roll."
 msgstr ""
 
-# Command parameter description for "n-sides"
+# Command parameter description ("n-sides")
 #: src/dpygt/cogs/random.py:22
 msgid "The number of sides with each dice."
 msgstr ""
 
-# Command parameter name for "roll"
+# Command parameter name (used by "roll")
 #: src/dpygt/cogs/random.py:25
 msgid "n-dice"
 msgstr ""
 
-# Command parameter name for "roll"
+# Command parameter name (used by "roll")
 #: src/dpygt/cogs/random.py:26
 msgid "n-sides"
 msgstr ""
@@ -115,17 +115,17 @@ msgstr ""
 msgid "rock-paper-scissors"
 msgstr ""
 
-# Command description for "rock-paper-scissors"
+# Command description ("rock-paper-scissors")
 #: src/dpygt/cogs/rps.py:268
 msgid "Start a game of rock, paper, scissors."
 msgstr ""
 
-# Command parameter description for "user"
+# Command parameter description ("user")
 #: src/dpygt/cogs/rps.py:272
 msgid "The user to play against. If not provided, anyone can play their move."
 msgstr ""
 
-# Command parameter name for "rock-paper-scissors"
+# Command parameter name (used by "rock-paper-scissors")
 #: src/dpygt/cogs/rps.py:276
 msgid "user"
 msgstr ""
