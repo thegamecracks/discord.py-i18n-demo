@@ -82,7 +82,7 @@ msgstr "(Inactif : {0}. Le jeu est terminé.)"
 #: src/dpygt/cogs/rps.py:95 src/dpygt/cogs/rps.py:121
 #, python-brace-format
 msgid "(ends {0})"
-msgstr "(terminé dans {0})"
+msgstr "(terminé {0})"
 
 #. Message shown when someone wins in Rock Paper Scissors
 #. {0}: the user's mention, e.g. @thegamecracks
