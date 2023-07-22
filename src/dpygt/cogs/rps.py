@@ -92,7 +92,7 @@ class BaseRPSView(discord.ui.View, ABC):
         if not finished and timestamp is not None:
             # Message shown while the Rock Paper Scissors game is active
             # {0}: the time that the game will end, e.g. in 10 minutes (formatted by Discord)
-            content = await translate(_("(ends {0})"), interaction)
+            content = await translate(_("(ends {0})"), self.interaction)
             content = content.format(timestamp)
 
         if content is not None:
@@ -248,7 +248,7 @@ class RPSDuelView(BaseRPSView):
 
             pause_embed = self.get_base_embed()
             # Message temporarily shown before the winner is revealed
-            reveal_message = await translate(_("Revealing the winner..."), interaction)
+            reveal_message = await translate(_("Revealing the winner..."), self.interaction)
             pause_embed.description = "\n".join(
                 [reveal_message] + self.list_moves(reveal=False)
             )
