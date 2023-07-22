@@ -1,26 +1,13 @@
 """Re-invokes xgettext on source packages and merges them into .po/.pot files."""
+import argparse
 import subprocess
+from contextlib import contextmanager, nullcontext
 from pathlib import Path, PurePosixPath
+from typing import Generator
 
-for package_path in Path("src").iterdir():
-    if not package_path.is_dir():
-        continue
-    elif not any(package_path.glob("*.pot")):
-        continue
 
-    print(package_path)
-
-    source_files: list[Path] = []
-    source_files.extend(package_path.rglob("*.py"))
-    if not source_files:
-        continue
-
-    po_paths: list[Path] = []
-    po_paths.extend(package_path.rglob("*.pot"))
-    po_paths.extend(package_path.rglob("*.po"))
-    if not po_paths:
-        continue
-
+@contextmanager
+def temporary_po_from_source(package_path: Path) -> Generator[Path, None, None]:
     merging_po = package_path / "messages.po.merging"
     subprocess.check_call(
         [
@@ -32,15 +19,59 @@ for package_path in Path("src").iterdir():
         ],
     )
 
-    # Hide CHARSET warning by defaulting to utf-8
-    content_type_temp = rb'"Content-Type: text/plain; charset=CHARSET\n"'
-    content_type_utf8 = rb'"Content-Type: text/plain; charset=UTF-8\n"'
-    content_pot = merging_po.read_bytes()
-    content_pot = content_pot.replace(content_type_temp, content_type_utf8)
-    merging_po.write_bytes(content_pot)
+    try:
+        # Hide CHARSET warning by defaulting to utf-8
+        content_type_temp = rb'"Content-Type: text/plain; charset=CHARSET\n"'
+        content_type_utf8 = rb'"Content-Type: text/plain; charset=UTF-8\n"'
+        content_pot = merging_po.read_bytes()
+        content_pot = content_pot.replace(content_type_temp, content_type_utf8)
+        merging_po.write_bytes(content_pot)
 
-    for po_path in po_paths:
-        print(po_path)
-        subprocess.check_call(["msgmerge", po_path, merging_po, "-o", po_path])
+        yield merging_po
+    finally:
+        merging_po.unlink(missing_ok=True)
 
-    merging_po.unlink()
+
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument(
+    "-t",
+    "--template",
+    action="store_true",
+    dest="merge_template",
+    help="Instead of generating from source, use the POT file to merge",
+)
+args = parser.parse_args()
+
+for package_path in Path("src").iterdir():
+    if not package_path.is_dir():
+        continue
+
+    pot_files = tuple(package_path.glob("*.pot"))
+    if not pot_files:
+        continue
+
+    print(package_path)
+
+    source_files: list[Path] = []
+    source_files.extend(package_path.rglob("*.py"))
+    if not source_files:
+        continue
+
+    po_paths: list[Path] = []
+    po_paths.extend(package_path.rglob("*.po"))
+    if not args.merge_template:
+        po_paths.extend(package_path.rglob("*.pot"))
+    if not po_paths:
+        continue
+
+    if args.merge_template:
+        merging_po_cm = nullcontext(pot_files[0])
+        print(f"Merging from {pot_files[0]}...")
+    else:
+        merging_po_cm = temporary_po_from_source(package_path)
+        print("Generating PO from source to merge...")
+
+    with merging_po_cm as merging_po:
+        for po_path in po_paths:
+            print(po_path)
+            subprocess.check_call(["msgmerge", po_path, merging_po, "-o", po_path])
