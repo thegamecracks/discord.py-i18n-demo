@@ -20,6 +20,22 @@ def locale_to_gnu(locale: discord.Locale) -> str:
     return str(locale).replace("-", "_")
 
 
+class EmptyTranslations(gettext.NullTranslations):
+    """Returns an empty message to indicate no translation is available."""
+
+    def gettext(self, message: str) -> str:
+        return ""
+
+    def ngettext(self, msgid1: str, msgid2: str, n: int) -> str:
+        return ""
+
+    def pgettext(self, context: str, message: str) -> str:
+        return ""
+
+    def npgettext(self, context: str, msgid1: str, msgid2: str, n: int) -> str:
+        return ""
+
+
 class GettextTranslator(app_commands.Translator):
     async def translate(
         self,
@@ -35,6 +51,8 @@ class GettextTranslator(app_commands.Translator):
             )
         except OSError:
             return
+
+        t.add_fallback(EmptyTranslations())
 
         plural: app_commands.locale_str | None = string.extras.get("plural")
         if plural is not None:
