@@ -1,0 +1,134 @@
+# dpygt
+# Copyright (C) 2023 thegamecracks
+# This file is distributed under the same license as the dpygt package.
+#
+# The following requirements must be met when providing translations for
+# certain strings:
+# * Command name
+#   - Lowercase variants of characters must be used
+#   - No spaces allowed, use "-" or "_" instead ("-" is preferred)
+#   - Max length of 32 characters
+# * Command description
+#   - Max length of 100 characters
+# * Command parameter name
+#   - Same as command name
+# * Command parameter description
+#   - Same as command description
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-22 01:18-0400\n"
+"PO-Revision-Date: 2023-07-22 01:17-0400\n"
+"Last-Translator: Bubobubobubobubo\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. Command name
+#: src/dpygt/cogs/random.py:18
+msgid "roll"
+msgstr "lancer"
+
+#. Command description ("roll")
+#: src/dpygt/cogs/random.py:20
+msgid "Roll one or more dice."
+msgstr "Lancer un ou plusieurs dés"
+
+#. Command parameter description ("n-dice")
+#: src/dpygt/cogs/random.py:24
+msgid "The number of dice to roll."
+msgstr "Le nombre de dés à lancer"
+
+#. Command parameter description ("n-sides")
+#: src/dpygt/cogs/random.py:26
+msgid "The number of sides with each dice."
+msgstr "Le nombre de faces pour chaque dé"
+
+#. Command parameter name (used by "roll")
+#: src/dpygt/cogs/random.py:30
+msgid "n-dice"
+msgstr "nombre-de-dés"
+
+#. Command parameter name (used by "roll")
+#: src/dpygt/cogs/random.py:32
+msgid "n-sides"
+msgstr "nombre-de-faces"
+
+#. Message sent after one or more dice have been rolled
+#. {0}: a comma-separated list of each die's values
+#. {1}: the total value of rolled dice
+#: src/dpygt/cogs/random.py:46
+#, python-brace-format
+msgid ""
+"Rolls: [{0}]\n"
+"Total: {1}"
+msgstr ""
+"Lancés: [{0}]\n"
+"Total: {1}"
+
+#. Message shown when the Rock Paper Scissors game times out
+#. {0}: the time when the game ended, e.g. 10 minutes ago (formatted by Discord)
+#: src/dpygt/cogs/rps.py:70
+#, python-brace-format
+msgid "(ended {0} from inactivity)"
+msgstr "(Inactif : {0}. Le jeu est terminé.)"
+
+#. Message shown while the Rock Paper Scissors game is active
+#. {0}: the time that the game will end, e.g. in 10 minutes (formatted by Discord)
+#: src/dpygt/cogs/rps.py:95 src/dpygt/cogs/rps.py:121
+#, python-brace-format
+msgid "(ends {0})"
+msgstr "(terminé dans {0})"
+
+#. Message shown when someone wins in Rock Paper Scissors
+#. {0}: the user's mention, e.g. @thegamecracks
+#: src/dpygt/cogs/rps.py:214
+#, python-brace-format
+msgid "The winner is {0}!"
+msgstr "Le gagnant est {0}!"
+
+#. Message shown when game ends due to a tie in Rock Paper Scissors
+#: src/dpygt/cogs/rps.py:219
+msgid "It's a tie!"
+msgstr "Pas de vainqueur. Égalité !"
+
+#. Message shown when more players (plural) need to join the current game
+#: src/dpygt/cogs/rps.py:230
+#, python-brace-format
+msgid "Waiting for {0} players..."
+msgstr "En attentede {0} joueurs..."
+
+#. Message shown when a player (singular) needs to join the current game
+#: src/dpygt/cogs/rps.py:228
+#, python-brace-format
+msgid "Waiting for {0} player..."
+msgstr "En attente du joueur {0}..."
+
+#. Message temporarily shown before the winner is revealed
+#: src/dpygt/cogs/rps.py:255
+msgid "Revealing the winner..."
+msgstr "Le gagnant est ..."
+
+#. Command name
+#: src/dpygt/cogs/rps.py:281
+msgid "rock-paper-scissors"
+msgstr "pierre-papier-ciseau"
+
+#. Command description ("rock-paper-scissors")
+#: src/dpygt/cogs/rps.py:283
+msgid "Start a game of rock, paper, scissors."
+msgstr "Démarrer un jeu de pierre, papier, ciseaux"
+
+#. Command parameter description ("user")
+#: src/dpygt/cogs/rps.py:288
+msgid "The user to play against. If not provided, anyone can play their move."
+msgstr "Votre opposant. Si ce dernier n'est pas spécifié, tout le monde pourra jouer."
+
+#. Command parameter name (used by "rock-paper-scissors")
+#: src/dpygt/cogs/rps.py:293
+msgid "user"
+msgstr "utilisateur"
