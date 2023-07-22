@@ -248,7 +248,8 @@ class RPSDuelView(BaseRPSView):
 
             pause_embed = self.get_base_embed()
             # Message temporarily shown before the winner is revealed
-            reveal_message = await translate(_("Revealing the winner..."), self.interaction)
+            reveal_message_key = _("Revealing the winner...")
+            reveal_message = await translate(reveal_message_key, self.interaction)
             pause_embed.description = "\n".join(
                 [reveal_message] + self.list_moves(reveal=False)
             )
