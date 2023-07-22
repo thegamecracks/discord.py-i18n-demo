@@ -4,6 +4,7 @@ appropriate .mo (machine object) results.
 
 Reference: https://setuptools.pypa.io/en/latest/userguide/extension.html#setuptools.command.build.SubCommand
 """
+# pyright: strict
 import shutil
 import subprocess
 from pathlib import Path
@@ -11,7 +12,7 @@ from typing import Iterator
 import warnings
 
 from setuptools import Command, setup
-from setuptools.command.build import SubCommand, build
+from setuptools.command.build import SubCommand, build  # type: ignore  # missing stub
 
 
 class build_mo(Command, SubCommand):
