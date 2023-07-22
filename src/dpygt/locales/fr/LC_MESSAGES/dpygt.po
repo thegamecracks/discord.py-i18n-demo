@@ -31,7 +31,7 @@ msgstr ""
 #. Command name
 #: src/dpygt/cogs/random.py:18
 msgid "roll"
-msgstr "Lancer"
+msgstr "lancer"
 
 #. Command description ("roll")
 #: src/dpygt/cogs/random.py:20
@@ -51,12 +51,12 @@ msgstr "Le nombre de faces pour chaque dé"
 #. Command parameter name (used by "roll")
 #: src/dpygt/cogs/random.py:30
 msgid "n-dice"
-msgstr "Nombre de dés :"
+msgstr "nombre-de-dés"
 
 #. Command parameter name (used by "roll")
 #: src/dpygt/cogs/random.py:32
 msgid "n-sides"
-msgstr "Nombre de faces :"
+msgstr "nombre-de-faces"
 
 #. Message sent after one or more dice have been rolled
 #. {0}: a comma-separated list of each die's values
@@ -116,7 +116,7 @@ msgstr "Le gagnant est ..."
 #. Command name
 #: src/dpygt/cogs/rps.py:281
 msgid "rock-paper-scissors"
-msgstr "Pierre-Papier-Ciseau"
+msgstr "pierre-papier-ciseau"
 
 #. Command description ("rock-paper-scissors")
 #: src/dpygt/cogs/rps.py:283
@@ -131,4 +131,4 @@ msgstr "Votre opposant. Si ce dernier n'est pas spécifié, tout le monde pourra
 #. Command parameter name (used by "rock-paper-scissors")
 #: src/dpygt/cogs/rps.py:293
 msgid "user"
-msgstr "Utilisateur"
+msgstr "utilisateur"
