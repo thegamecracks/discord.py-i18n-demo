@@ -98,7 +98,16 @@ used to create PO files which contain translations for a single [locale].
 The `xgettext` utility is used to scan your source code files to extract
 strings. This is done by looking for keywords, typically a function name
 like `gettext`, followed by a set of parentheses with arguments, one or
-more of which contain strings.
+more of which contain strings:
+
+```py
+from gettext import gettext as _
+
+def main():
+    translatable_string = _("Hello world!")
+    print(translatable_string)
+```
+
 A default set of keywords, as listed [in the manual](https://www.gnu.org/software/gettext/manual/gettext.html#index-_002dk_002c-xgettext-option),
 are defined for several programming languages.
 In the case of Python, those are the `*gettext()` functions and the additional
@@ -107,6 +116,7 @@ really be set to anything. For example with discord.py, `discord.app_commands.lo
 marks strings that can be localized when synchronizing application commands with
 Discord, so this is an appropriate type to be aliased as `_`. You can also define
 your own keywords if necessary.
+
 
 To create the .pot, start by running `xgettext src/dpygt/**/*.py`. xgettext
 will scan the given Python files and generate a resulting `messages.po` file.
