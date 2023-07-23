@@ -161,9 +161,9 @@ Within this directory, localizations are further categorized into
 and `<domain>` is the [domain] name. For example, a Japanese localization
 of this project should be defined as `locales/ja/LC_MESSAGES/dpygt.po`.
 
-In reality, as explained in the next section, this file structure is intended
-for MO files, not PO files. However for convenience, this project expects all
-PO files to reside in the same directories as their MO file outputs.
+In reality, this file structure is intended for MO files, not PO files.
+However for convenience, this project expects all PO files to reside in
+the same directories as their MO file outputs.
 
 ### Creating a .mo (Machine Object) compiled localization
 
