@@ -205,9 +205,25 @@ utility can be used to merge two PO files, such as one freshly generated from
 `xgettext`. For example to update `current.po` in-place with `new.pot`, you
 can run `msgmerge current.po new.pot -o current.po`.
 
-For strings that have slightly changed, it attempts to fuzzy match
-them to their previous revisions by default. Strings that appear to no longer
-exist are considered obsolete and commented out.
+For strings that have changed, `msgmerge` attempts to match them to their
+previous revision and if successful, marks them as
+[fuzzy](https://www.gnu.org/software/gettext/manual/gettext.html#index-fuzzy-flag):
+
+```po
+#. Command name
+#: src/dpygt/cogs/random.py:18
+#, fuzzy
+msgid "roll-dice"
+msgstr "nombre-de-dés"
+```
+
+When compiling MO files, fuzzy entries are omitted unless the
+[`-f/--use-fuzzy`](https://www.gnu.org/software/gettext/manual/gettext.html#index-_002df_002c-msgfmt-option)
+is specified. Translators should review fuzzy strings and update
+their translations if necessary before deleting the fuzzy flag.
+
+Strings that no longer exist are considered obsolete by `msgmerge`
+and are commented out.
 
 Similar to `msgfmt`, GUI editors may provide a utility command for merging
 PO files, but otherwise `msgmerge` has to be ran on each PO/POT file, making
