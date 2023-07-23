@@ -108,15 +108,17 @@ def main():
     print(translatable_string)
 ```
 
-A default set of keywords, as listed [in the manual](https://www.gnu.org/software/gettext/manual/gettext.html#index-_002dk_002c-xgettext-option),
-are defined for several programming languages.
-In the case of Python, those are the `*gettext()` functions and the additional
-`_()` shorthand, which is typically defined as an alias to `gettext()` but can
-really be set to anything. For example with discord.py, `discord.app_commands.locale_str`
-marks strings that can be localized when synchronizing application commands with
-Discord, so this is an appropriate type to be aliased as `_`. You can also define
-your own keywords if necessary.
-
+A default set of keywords are defined for several programming languages
+as listed [in the manual](https://www.gnu.org/software/gettext/manual/gettext.html#index-_002dk_002c-xgettext-option).
+For Python, `xgettext` checks for `*gettext()` functions and the additional
+`_()` shorthand which programmers can alias to any function they want,
+usually `gettext()`.
+In the case of discord.py, `discord.app_commands.locale_str` marks strings
+that can be localized when synchronizing application commands with Discord,
+so this project often aliases it to `_`.
+You can also define your own keywords using the
+[`-k/--keyword`](https://www.gnu.org/software/gettext/manual/gettext.html#index-_002dk_002c-xgettext-option)
+option if you prefer having multiple shorthands available.
 
 To create the .pot, start by running `xgettext src/dpygt/**/*.py`. xgettext
 will scan the given Python files and generate a resulting `messages.po` file.
