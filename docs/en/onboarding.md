@@ -191,9 +191,9 @@ which can get tedious. As such, this project provides two utilites for this:
   It is intended to be executed from the project root.
 
 - [setup.py](/setup.py):
-  This is used by the setuptools build system and implements a subcommand
-  which replaces all PO files with MO equivalents when building the package
-  (editable installs excepted).
+  This is used by the [setuptools](https://setuptools.pypa.io/) build system
+  and implements a subcommand which replaces all PO files with MO equivalents
+  when building the package (editable installs excepted).
   In other words the [sdist] only includes the PO files, but once the [wheel]
   is built from it, only MO files will be present.
 
