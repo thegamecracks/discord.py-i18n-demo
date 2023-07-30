@@ -143,8 +143,7 @@ in the form LL_CC, for example `en_US`.
 Adjust the PO file's metadata like `Last-Translator` as necessary before you
 start writing translations for messages.
 
-> **Note**
->
+> [!NOTE]
 > For this project we are limited to the
 > [locales supported by Discord](https://discord.com/developers/docs/reference#locales).
 
