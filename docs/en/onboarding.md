@@ -225,7 +225,7 @@ previous revision and if successful, marks them as
 #: src/dpygt/cogs/random.py:18
 #, fuzzy
 msgid "roll-dice"
-msgstr "nombre-de-dés"
+msgstr "lancer"
 ```
 
 When compiling MO files, fuzzy entries are omitted unless the
