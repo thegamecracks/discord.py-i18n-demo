@@ -9,9 +9,8 @@ from typing import Generator, Iterable
 @contextmanager
 def temporary_po_from_source(
     source_files: Iterable[Path],
-    output_dir: Path,
+    output_path: Path,
 ) -> Generator[Path, None, None]:
-    merging_po = output_dir / "messages.po.merging"
     subprocess.check_call(
         [
             "xgettext",
@@ -20,7 +19,7 @@ def temporary_po_from_source(
             "--add-comments",
             "-o",
             # Normalize generated source file references in POSIX style
-            PurePosixPath(merging_po),
+            PurePosixPath(output_path),
             *(PurePosixPath(p) for p in source_files),
         ],
     )
@@ -29,13 +28,13 @@ def temporary_po_from_source(
         # Hide CHARSET warning by defaulting to utf-8
         content_type_temp = rb'"Content-Type: text/plain; charset=CHARSET\n"'
         content_type_utf8 = rb'"Content-Type: text/plain; charset=UTF-8\n"'
-        content_pot = merging_po.read_bytes()
+        content_pot = output_path.read_bytes()
         content_pot = content_pot.replace(content_type_temp, content_type_utf8)
-        merging_po.write_bytes(content_pot)
+        output_path.write_bytes(content_pot)
 
-        yield merging_po
+        yield output_path
     finally:
-        merging_po.unlink(missing_ok=True)
+        output_path.unlink(missing_ok=True)
 
 
 parser = argparse.ArgumentParser(description=__doc__)
@@ -74,7 +73,10 @@ for package_path in Path("src").iterdir():
         merging_po_cm = nullcontext(pot_files[0])
         print(f"Merging from {pot_files[0]}...")
     else:
-        merging_po_cm = temporary_po_from_source(source_files, output_dir=package_path)
+        merging_po_cm = temporary_po_from_source(
+            source_files,
+            output_path=package_path / "messages.po.merging",
+        )
         print("Generating PO from source to merge...")
 
     with merging_po_cm as merging_po:
