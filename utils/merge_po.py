@@ -3,12 +3,15 @@ import argparse
 import subprocess
 from contextlib import contextmanager, nullcontext
 from pathlib import Path, PurePosixPath
-from typing import Generator
+from typing import Generator, Iterable
 
 
 @contextmanager
-def temporary_po_from_source(package_path: Path) -> Generator[Path, None, None]:
-    merging_po = package_path / "messages.po.merging"
+def temporary_po_from_source(
+    source_files: Iterable[Path],
+    output_dir: Path,
+) -> Generator[Path, None, None]:
+    merging_po = output_dir / "messages.po.merging"
     subprocess.check_call(
         [
             "xgettext",
@@ -71,7 +74,7 @@ for package_path in Path("src").iterdir():
         merging_po_cm = nullcontext(pot_files[0])
         print(f"Merging from {pot_files[0]}...")
     else:
-        merging_po_cm = temporary_po_from_source(package_path)
+        merging_po_cm = temporary_po_from_source(source_files, output_dir=package_path)
         print("Generating PO from source to merge...")
 
     with merging_po_cm as merging_po:
