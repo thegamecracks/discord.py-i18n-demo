@@ -4,5 +4,5 @@ from pathlib import Path
 
 for po_path in Path("src").rglob("*.po"):
     print(po_path)
-    output = str(po_path.with_suffix(".mo"))
-    subprocess.check_call(["msgfmt", "-o", output, str(po_path)])
+    output = po_path.with_suffix(".mo")
+    subprocess.check_call(["msgfmt", "-o", output, po_path])
