@@ -35,7 +35,7 @@ translations for one or more locales).
 
 On Linux, gettext is usually available through your package manager.
 
-On Windows, gettext utilites can be provided by the [Git for Windows](https://git-scm.com/download/)
+On Windows, gettext utilities can be provided by the [Git for Windows](https://git-scm.com/download/)
 distribution, either by:
 
 1. using the gettext utilities within [Git Bash](https://www.atlassian.com/git/tutorials/git-bash),
@@ -183,7 +183,7 @@ which are cross-platform binary formats designed for optimized lookups of transl
 
 To create a MO file from a PO file, you can use `msgfmt -o <domain>.mo <domain>.po`.
 Some GUI editors may do this for you, but otherwise it has to be done for each PO file
-which can get tedious. As such, this project provides two utilites for this:
+which can get tedious. As such, this project provides two utilities for this:
 
 - [utils/build_mo.py](/utils/build_mo.py):
   This is a very simple Python script that invokes msgfmt on all PO files
