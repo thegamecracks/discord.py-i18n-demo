@@ -3,6 +3,8 @@ import importlib.metadata
 import logging
 import sys
 
+import discord
+
 from .bot import DPyGT
 from .config import load_config
 
@@ -27,6 +29,12 @@ if args.verbose > 0:
 if args.verbose > 1:
     root_level = logging.DEBUG
 
+# Configure logging early to capture our own initialization
+discord.utils.setup_logging(
+    level=root_level,
+    root=True,
+)
+
 config = load_config()
 
 if config.bot.token == "":
@@ -39,6 +47,5 @@ if config.bot.token == "":
 bot = DPyGT(config)
 bot.run(
     config.bot.token,
-    log_level=root_level,
-    root_logger=True,
+    log_handler=None,
 )
