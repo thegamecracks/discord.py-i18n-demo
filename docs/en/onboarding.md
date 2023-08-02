@@ -30,7 +30,7 @@ to login and register application commands on Discord.
 gettext refers to a set of utilities written as part of the GNU Project,
 designed to help programs support internationalization (abbreviated as i18n,
 meaning a program can adapt to different [locales] without an architectural re-design)
-and localization (abbreviated as L18n, referring to the process of adding
+and localization (abbreviated as L10n, referring to the process of adding
 translations for one or more locales).
 
 On Linux, gettext is usually available through your package manager.
