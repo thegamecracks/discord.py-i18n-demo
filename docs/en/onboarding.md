@@ -232,7 +232,8 @@ When compiling MO files, fuzzy entries are omitted unless the
 is specified. Translators should review fuzzy strings and update
 their translations if necessary before deleting the fuzzy flag.
 
-Strings that no longer exist are considered obsolete by `msgmerge` and commented out.
+When a string no longer appears in the source code, `msgmerge` will mark
+their localizations as obsolete with `#~` and may be discarded by translators.
 
 Similar to `msgfmt`, GUI editors may provide a utility command for merging
 PO files, but otherwise `msgmerge` has to be ran on each PO/POT file, making
