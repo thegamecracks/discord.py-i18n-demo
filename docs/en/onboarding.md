@@ -221,7 +221,6 @@ previous revision and if successful, marks them as
 [fuzzy](https://www.gnu.org/software/gettext/manual/gettext.html#index-fuzzy-flag):
 
 ```po
-#. Command name
 #: src/dpygt/cogs/random.py:18
 #, fuzzy
 msgid "roll-dice"
