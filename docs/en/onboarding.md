@@ -27,11 +27,13 @@ to login and register application commands on Discord.
 
 ### gettext
 
-gettext refers to a set of utilities written as part of the GNU Project,
-designed to help programs support internationalization (abbreviated as i18n,
-meaning a program can adapt to different [locales] without an architectural re-design)
-and localization (abbreviated as L10n, referring to the process of adding
-translations for one or more locales).
+[gettext](https://en.wikipedia.org/wiki/Gettext) refers to a set of utilities
+written as part of the GNU Project, designed to help programs support
+[internationalization/i18n] and [localization/L10n].
+Translations are written by hand, often with the help of someone else,
+and can be changed at runtime without the need to re-compile a program.
+The gettext file formats are language-agnostic so anyone can help translate
+your program without having any programming knowledge.
 
 On Linux, gettext is usually available through your package manager.
 
@@ -311,12 +313,25 @@ Additional resources:
    [locating](https://www.gnu.org/software/gettext/manual/gettext.html#Locating-Message-Catalog-Files)
    those files in their [locale] category (`<localedir>/<locale>/<category>/<domain>.mo`).
 
-2. <span id="locale">Locale</span>
+2. <span id="internationalization">Internationalization/i18n</span>
+
+   As described by the [GNU manual](https://www.gnu.org/software/gettext/manual/gettext.html#I18n_002c-L10n_002c-and-Such),
+   internationalization refers to a program's ability to adapt to different [locales]
+   without an architectural re-design.
+
+3. <span id="locale">Locale</span>
 
    As described by the [GNU manual](https://www.gnu.org/software/gettext/manual/gettext.html#I18n_002c-L10n_002c-and-Such),
    a locale defines the "cultural habits" associated with a language and/or country.
    Locales are used as identifiers for categorizing translations.
 
+4. <span id="localization">Localization/L10n</span>
+
+   As described by the [GNU manual](https://www.gnu.org/software/gettext/manual/gettext.html#I18n_002c-L10n_002c-and-Such),
+   localization refers to the process of translating a program to one or more [locales].
+
 [domain]: #domain
+[internationalization/i18n]: #internationalization
 [locale]: #locale
 [locales]: #locale
+[localization/L10n]: #localization
