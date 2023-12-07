@@ -46,6 +46,22 @@ distribution, either by:
    option during installation to have access to them in the regular Windows
    terminals.
 
+> [!NOTE]
+>
+> For Windows users, you may notice some warnings when running gettext programs
+> mentioning that there are files missing in `/usr/share`:
+>
+> ```sh
+> sh: /usr/share/gettext/projects/team-address: No such file or directory
+> msginit: /usr/share/gettext/projects/team-address subprocess failed
+> msginit: /usr/share/gettext/projects/team-address subprocess failed with exit code 127
+> ```
+>
+> This is not critical to gettext's operation, but you may choose to fix this
+> by installing the [Git for Windows SDK](https://gitforwindows.org/)
+> and then running `pacman -S gettext-devel` to install the rest of its files
+> (see also [Package Management](https://www.msys2.org/docs/package-management/)).
+
 You can read more about gettext on the [GNU website](https://www.gnu.org/software/gettext/).
 
 ### Python
