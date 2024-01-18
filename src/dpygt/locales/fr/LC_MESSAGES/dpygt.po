@@ -34,37 +34,37 @@ msgstr ""
 #. Command parameter name (used by "fruit")
 #: src/dpygt/cogs/choices.py:16 src/dpygt/cogs/choices.py:26
 msgid "fruit"
-msgstr ""
+msgstr "fruit"
 
 #. Command description ("fruit")
 #: src/dpygt/cogs/choices.py:18
 msgid "What's your favourite fruit?"
-msgstr ""
+msgstr "Quelle est ton fruit favorite?"
 
 #. Command parameter description ("fruit")
 #: src/dpygt/cogs/choices.py:22
 msgid "Your favourite fruit"
-msgstr ""
+msgstr "Le fruit favorite"
 
 #. Command parameter choice (used by "/fruit <fruit>")
 #: src/dpygt/cogs/choices.py:31
 msgid "Apple"
-msgstr ""
+msgstr "Pomme"
 
 #. Command parameter choice (used by "/fruit <fruit>")
 #: src/dpygt/cogs/choices.py:33
 msgid "Banana"
-msgstr ""
+msgstr "Banane"
 
 #. Command parameter choice (used by "/fruit <fruit>")
 #: src/dpygt/cogs/choices.py:35
 msgid "Cherry"
-msgstr ""
+msgstr "Cerise"
 
 #. Message telling the user their favourite fruit
 #: src/dpygt/cogs/choices.py:44
 msgid "Your favourite fruit is {}!"
-msgstr ""
+msgstr "Ton fruit favorite est: {}"
 
 #. Command name
 #: src/dpygt/cogs/random.py:18
