@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools>=60", "setuptools-scm>=8"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -18,8 +18,7 @@ dependencies = [
 dev = ["black>=23.7.0"]
 jishaku = ["jishaku @ git+https://github.com/Gorialis/jishaku@4590932f56a0e5a33b15d1c536955d4898d6b04e"]
 
-[tool.setuptools.dynamic]
-version = { attr = "dpygt.__version__" }
+[tool.setuptools_scm]
 
 [tool.pyright]
 typeCheckingMode = "standard"
