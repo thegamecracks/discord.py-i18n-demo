@@ -14,11 +14,13 @@
 #   - Same as command name
 # * Command parameter description
 #   - Same as command description
+# * Command parameter choice
+#   - Same as command description
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-22 15:06-0400\n"
+"POT-Creation-Date: 2024-01-17 21:56-0500\n"
 "PO-Revision-Date: 2023-07-22 01:17-0400\n"
 "Last-Translator: Bubobubobubobubo\n"
 "Language-Team: French\n"
@@ -27,6 +29,42 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. Command name
+#. Command parameter name (used by "fruit")
+#: src/dpygt/cogs/choices.py:16 src/dpygt/cogs/choices.py:26
+msgid "fruit"
+msgstr ""
+
+#. Command description ("fruit")
+#: src/dpygt/cogs/choices.py:18
+msgid "What's your favourite fruit?"
+msgstr ""
+
+#. Command parameter description ("fruit")
+#: src/dpygt/cogs/choices.py:22
+msgid "Your favourite fruit"
+msgstr ""
+
+#. Command parameter choice (used by "/fruit <fruit>")
+#: src/dpygt/cogs/choices.py:31
+msgid "Apple"
+msgstr ""
+
+#. Command parameter choice (used by "/fruit <fruit>")
+#: src/dpygt/cogs/choices.py:33
+msgid "Banana"
+msgstr ""
+
+#. Command parameter choice (used by "/fruit <fruit>")
+#: src/dpygt/cogs/choices.py:35
+msgid "Cherry"
+msgstr ""
+
+#. Message telling the user their favourite fruit
+#: src/dpygt/cogs/choices.py:44
+msgid "Your favourite fruit is {}!"
+msgstr ""
 
 #. Command name
 #: src/dpygt/cogs/random.py:18

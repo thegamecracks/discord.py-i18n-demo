@@ -3,6 +3,7 @@
 [bot]
 token = ""
 extensions = [
+    ".cogs.choices",
     ".cogs.owner",
     ".cogs.random",
     ".cogs.rps",
