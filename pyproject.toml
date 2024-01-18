@@ -20,3 +20,6 @@ jishaku = ["jishaku @ git+https://github.com/Gorialis/jishaku@4590932f56a0e5a33b
 
 [tool.setuptools.dynamic]
 version = { attr = "dpygt.__version__" }
+
+[tool.pyright]
+typeCheckingMode = "standard"
