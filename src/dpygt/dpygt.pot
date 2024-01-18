@@ -1,7 +1,7 @@
 # dpygt
-# Copyright (C) 2023 thegamecracks
+# Copyright (C) 2024 thegamecracks
 # This file is distributed under the same license as the dpygt package.
-# 
+#
 # The following requirements must be met when providing translations for
 # certain strings:
 # * Command name
