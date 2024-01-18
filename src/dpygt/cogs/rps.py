@@ -10,8 +10,8 @@ from discord import app_commands
 from discord.app_commands import locale_str as _
 from discord.ext import commands
 
-from ..bot import DPyGT
-from ..translator import plural_locale_str as ngettext, translate
+from dpygt.bot import DPyGT
+from dpygt.translator import plural_locale_str as ngettext, translate
 
 UM = discord.User | discord.Member
 

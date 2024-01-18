@@ -2,8 +2,8 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from ..bot import Context, DPyGT
-from ..config import load_config
+from dpygt.bot import Context, DPyGT
+from dpygt.config import load_config
 
 
 def count_localizations(command: app_commands.AppCommand) -> int:
