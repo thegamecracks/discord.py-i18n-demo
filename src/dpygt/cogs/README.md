@@ -1,3 +1,4 @@
+- `choices.py`: Showcases translation of choices for parameters.
 - `owner.py`: Provides management commands for the bot owner.
 - `random.py`: Provides commands for random number generation.
 - `rps.py`: Provides commands related to the Rock, Paper, Scissors game.
