@@ -13,18 +13,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4.1.1
-      with:
-        fetch-tags: true
-    - name: Set up Python
-      uses: actions/setup-python@v4.7.0
-      with:
-        python-version: '3.11'
-        cache: 'pip'
-        cache-dependency-path: 'pyproject.toml'
-    - name: Install pyright
-      run: pip install pyright
-    - name: Install dpygt
-      run: pip install .
-    - name: Run pyright
-      run: pyright
+      - uses: actions/checkout@v4.1.1
+        with:
+          fetch-tags: true
+      - name: Set up Python
+        uses: actions/setup-python@v4.7.0
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: 'pyproject.toml'
+      - name: Install pyright
+        run: pip install pyright
+      - name: Install dpygt
+        run: pip install .
+      - name: Run pyright
+        run: pyright
