@@ -47,7 +47,7 @@ distribution, either by:
 
 > [!NOTE]
 >
-> For Windows users, you may notice some warnings when running gettext programs
+> For MSYS users, you may notice some warnings when running gettext programs
 > mentioning that there are files missing in `/usr/share`:
 >
 > ```sh
@@ -57,9 +57,8 @@ distribution, either by:
 > ```
 >
 > This is not critical to gettext's operation, but you may choose to fix this
-> by installing the [Git for Windows SDK](https://gitforwindows.org/)
-> and then running `pacman -S gettext-devel` to install the rest of its files
-> (see also [Package Management](https://www.msys2.org/docs/package-management/)).
+> by running `pacman -S gettext-devel`.
+> (see also [Package Management](https://www.msys2.org/docs/package-management/))
 
 You can read more about gettext on the [GNU website](https://www.gnu.org/software/gettext/).
 
