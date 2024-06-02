@@ -136,8 +136,8 @@ You can also define your own keywords using the
 [`-k/--keyword`](https://www.gnu.org/software/gettext/manual/gettext.html#index-_002dk_002c-xgettext-option)
 option if you prefer having multiple shorthands available.
 
-To create the .pot, start by running `xgettext src/dpygt/**/*.py`. xgettext
-will scan the given Python files and generate a resulting `messages.po` file.
+To create the .pot, start by running `xgettext src/dpygt/**/*.py src/dpygt/*.py`.
+xgettext will scan the given Python files and generate a resulting `messages.po` file.
 You can then rename it to the `dpygt` [domain] + `.pot` extension,
 edit the title/copyright header, and place it at `src/dpygt/dpygt.pot`.
 
