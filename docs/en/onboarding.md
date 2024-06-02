@@ -37,14 +37,13 @@ your program without having any programming knowledge.
 
 On Linux, gettext is usually available through your package manager.
 
-On Windows, gettext utilities can be provided by the [Git for Windows](https://git-scm.com/download/)
+On Windows, gettext utilities can be provided by the [MSYS2](https://www.msys2.org/)
 distribution, either by:
 
-1. using the gettext utilities within [Git Bash](https://www.atlassian.com/git/tutorials/git-bash),
-   or;
-2. enabling the "Use Git and optional Unix tools from the Command Prompt"
-   option during installation to have access to them in the regular Windows
-   terminals.
+1. using the gettext utilities within the [MSYS2 MSYS](https://www.msys2.org/docs/environments/)
+   environment, or;
+2. adding `C:\msys64\usr\bin` to your PATH environment variable after installation
+   to have access to them in the regular Windows terminals.
 
 > [!NOTE]
 >
