@@ -13,5 +13,5 @@ jobs:
     name: Run black
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.1
-      - uses: psf/black@23.7.0
+      - uses: actions/checkout@v4
+      - uses: psf/black@24.8.0
