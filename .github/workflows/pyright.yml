@@ -14,17 +14,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Fetch tags
-        run: git fetch --tags --depth 1
-      - name: Set up Python
-        uses: actions/setup-python@v5
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
           cache-dependency-path: 'pyproject.toml'
-      - name: Install pyright
-        run: pip install pyright
-      - name: Install dpygt
-        run: pip install .
-      - name: Run pyright
-        run: pyright
+      - run: pip install pyright
+      - run: pip install .
+      - run: pyright
