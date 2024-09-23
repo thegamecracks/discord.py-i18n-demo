@@ -83,7 +83,10 @@ class GettextTranslator(app_commands.Translator):
         else:
             translated = t.gettext(string.message)
 
-        return translated or None
+        if translated == "":
+            return None
+
+        return translated
 
 
 def plural_locale_str(
