@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Iterator
 import warnings
 
-from setuptools import Command, setup
+from setuptools import Command, setup  # type: ignore  # setup() partially unknown
 from setuptools.command.build import SubCommand, build  # type: ignore  # missing stub
 
 
