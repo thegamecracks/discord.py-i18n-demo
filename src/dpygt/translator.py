@@ -66,6 +66,8 @@ class GettextTranslator(app_commands.Translator):
         context: app_commands.TranslationContextTypes,
     ) -> str | None:
         try:
+            # Search path will look like:
+            #     <localedir>/<languages>/LC_MESSAGES/<domain>.po
             t = gettext.translation(
                 domain=DOMAIN,
                 localedir=str(_LOCALES_PATH),
@@ -74,7 +76,12 @@ class GettextTranslator(app_commands.Translator):
         except OSError:
             return
 
+        # Normally the gettext module returns the message ID if no localization
+        # is found, but we want to replace it with None so discord.py knows
+        # that this string isn't localized.
         t.add_fallback(EmptyTranslations())
+        # Let's add an EmptyTranslations fallback so we get empty strings
+        # for missing localizations instead.
 
         plural: str | None = string.extras.get("plural")
         if plural is not None:
