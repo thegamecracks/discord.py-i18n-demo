@@ -69,7 +69,7 @@ class GettextTranslator(app_commands.Translator):
             t = gettext.translation(
                 domain=DOMAIN,
                 localedir=str(_LOCALES_PATH),
-                languages=(locale_to_gnu(locale), "en_US"),
+                languages=[locale_to_gnu(locale)],
             )
         except OSError:
             return
