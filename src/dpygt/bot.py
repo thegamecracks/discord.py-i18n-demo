@@ -45,5 +45,4 @@ class DPyGT(commands.Bot):
         await self.tree.set_translator(GettextTranslator())
 
 
-class Context(commands.Context[DPyGT]):
-    ...
+class Context(commands.Context[DPyGT]): ...

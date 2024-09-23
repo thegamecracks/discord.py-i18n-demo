@@ -297,9 +297,11 @@ class RPS(commands.Cog):
         view = RPSDuelView(
             interaction,
             _create_buttons(self.STANDARD),
-            {interaction.user, user}
-            if user is not None and user != interaction.user
-            else set(),
+            (
+                {interaction.user, user}
+                if user is not None and user != interaction.user
+                else set()
+            ),
             timeout=180,
         )
 

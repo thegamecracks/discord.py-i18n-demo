@@ -58,8 +58,7 @@ DPyGTSettingsBot.model_rebuild()
 
 
 class OpenableBinary(Protocol):
-    def open(self, __mode: Literal["rb"], /) -> io.BufferedIOBase:
-        ...
+    def open(self, __mode: Literal["rb"], /) -> io.BufferedIOBase: ...
 
 
 def _recursive_update(dest: dict, src: dict) -> None:
