@@ -39,7 +39,7 @@ class RPSButton(discord.ui.Button["BaseRPSView"]):
 class BaseRPSView(discord.ui.View, ABC):
     """Defines the interface for any Rock, Paper, Scissors variant."""
 
-    children: list[RPSButton]
+    children: list[RPSButton]  # type: ignore
     message: discord.Message
 
     def __init__(
@@ -259,7 +259,7 @@ class RPSDuelView(BaseRPSView):
         await self.update(interaction, embed=final_embed)
 
 
-def _create_buttons(items: Iterable[tuple[int, dict[str, object]]]) -> tuple[RPSButton]:
+def _create_buttons(*items: tuple[int, dict[str, object]]) -> tuple[RPSButton, ...]:
     return tuple(RPSButton(value, **kwargs) for value, kwargs in items)
 
 
@@ -296,7 +296,7 @@ class RPS(commands.Cog):
     ):
         view = RPSDuelView(
             interaction,
-            _create_buttons(self.STANDARD),
+            _create_buttons(*self.STANDARD),
             (
                 {interaction.user, user}
                 if user is not None and user != interaction.user

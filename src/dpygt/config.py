@@ -1,12 +1,11 @@
 from __future__ import annotations
 
 import importlib.resources
-import io
 import tomllib
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, Literal, Protocol
+from typing import IO, TYPE_CHECKING, Any, Literal, Protocol
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 if TYPE_CHECKING:
     import discord
@@ -42,8 +41,7 @@ class DPyGTSettingsBotIntents(_BaseModel):
 
     """
 
-    class Config:
-        extra = "allow"
+    model_config = ConfigDict(extra="allow")
 
     def create_intents(self) -> discord.Intents:
         import discord
@@ -58,7 +56,7 @@ DPyGTSettingsBot.model_rebuild()
 
 
 class OpenableBinary(Protocol):
-    def open(self, __mode: Literal["rb"], /) -> io.BufferedIOBase: ...
+    def open(self, __mode: Literal["rb"], /) -> IO[bytes]: ...
 
 
 def _recursive_update(dest: dict, src: dict) -> None:

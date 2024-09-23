@@ -29,7 +29,7 @@ class Owner(commands.Cog):
     def __init__(self, bot: DPyGT):
         self.bot = bot
 
-    async def cog_check(self, ctx: Context):
+    async def cog_check(self, ctx: Context) -> bool:  # type: ignore
         return await commands.is_owner().predicate(ctx)
 
     @commands.command(name="reload-config", aliases=["config-reload"])
