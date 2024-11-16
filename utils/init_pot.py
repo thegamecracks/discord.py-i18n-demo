@@ -55,7 +55,7 @@ if not source.is_dir():
     sys.exit(f"ERROR: no directory found at {source}")
 
 output_path = source / f"{source.resolve().name}.pot"
-if output_path.is_file():
+if not args.force and output_path.is_file():
     sys.exit(f"ERROR: existing template at {output_path}, use -f/--force to overwrite")
 
 source_files = list(find_source_files(source))
