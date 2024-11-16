@@ -10,7 +10,7 @@ from .config import load_config
 
 parser = argparse.ArgumentParser(
     prog=__package__,
-    description=importlib.metadata.metadata("dpygt")["Summary"],
+    description=importlib.metadata.metadata("discord.py-i18n-demo")["Summary"],
 )
 parser.add_argument(
     "-v",
